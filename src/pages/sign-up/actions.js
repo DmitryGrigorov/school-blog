@@ -1,6 +1,5 @@
-export const changeFieldAction = ({fieldId, value}) => {
-  return {
-    type: "SIGN-UP_CHANGE_FIELD",
-    payload: ({fieldId, value})
-  };
-};
+
+export const changeFieldAction = ({ fieldId, value }) => ({
+  type: 'SIGN-UP_CHANGE_DATA_FORM',
+  payload: { fieldId, value }
+});

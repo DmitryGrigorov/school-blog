@@ -1,46 +1,85 @@
-import React from "react";
-import { connect } from "react-redux";
-import Input from "../../components/input";
-import * as Actions from "./actions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Input from 'src/components/input';
+import * as Actions from './actions';
 
-const enhance = connect(
-  state => ({
-    dataForm: state.signUp.dataForm
-  }),
-  dispatch => ({
-      changeFieldAction: ({fieldId, value}) => dispatch(Actions.changeFieldAction({fieldId, value})) 
-  })
-);
+class SignIn extends Component {
+  static propTypes = {
+    dataForm: PropTypes.object.isRequired,
+    changeFieldAction: PropTypes.func.isRequired,
+  };
 
-const SignUp = enhance(props => {
-  return (
-    <div>
-      <div>Login</div>
-      <Input
-        id="login"
-        value={props.dataForm.login}
-        onChange={props.changeFieldAction}
-      />
-      <div>Email</div>
-      <Input
-        id="email"
-        value={props.dataForm.email}
-        onChange={props.changeFieldAction}
-      />
-      <div>First name</div>
-      <Input
-        id="nameField"
-        value={props.dataForm.nameField}
-        onChange={props.changeFieldAction}
-      />
-      <div>Password</div>
-      <Input
-        id="password"
-        value={props.dataForm.password}
-        onChange={props.changeFieldAction}
-      />
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <div>
+          <div>
+            login
+          </div>
+          <div>
+            <Input
+              id="login"
+              value={this.props.dataForm.login}
+              onChange={this.props.changeFieldAction}
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            first name
+          </div>
+          <div>
+            <Input
+              id="firstname"
+              value={this.props.dataForm.firstname}
+              onChange={this.props.changeFieldAction}
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            last name
+          </div>
+          <div>
+            <Input
+              id="lastname"
+              value={this.props.dataForm.lastname}
+              onChange={this.props.changeFieldAction}
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            email
+          </div>
+          <div>
+            <Input
+              id="email"
+              value={this.props.dataForm.email}
+              onChange={this.props.changeFieldAction}
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            password
+          </div>
+          <div>
+            <Input
+              id="password"
+              value={this.props.dataForm.password}
+              onChange={this.props.changeFieldAction}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => ({
+  dataForm: state.signUp.dataForm
 });
 
-export default SignUp;
+export default connect(mapStateToProps, Actions)(SignIn);

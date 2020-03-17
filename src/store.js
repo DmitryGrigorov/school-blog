@@ -1,19 +1,31 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
+
 import applicationReducer from 'src/app/reducer';
 import signInReducer from 'src/pages/sing-in/reduce';
-import signUpReducer from 'src/pages/sign-up/reducer';
-
-const rootReducer = combineReducers({
-  applicationReducer: applicationReducer,
-  signIn: signInReducer,
-  signUp: signUpReducer
-});
+import signUpReducer from 'src/pages/sign-up/reduce';
+import { history } from 'src/history';
 
 const logger = createLogger({
   collapsed: true
 });
 
-const store = createStore(rootReducer, applyMiddleware(logger));
+const middlewares = [
+  routerMiddleware(history),
+  logger,
+];
+
+const createRootReducer = (history) => combineReducers({
+  router: connectRouter(history),
+  applicationReducer: applicationReducer,
+  signIn: signInReducer,
+  signUp: signUpReducer
+});
+
+
+const store = createStore(createRootReducer(history), applyMiddleware(
+  ...middlewares
+));
 
 export default store;
