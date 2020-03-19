@@ -10,7 +10,6 @@ import SignUp from 'src/pages/sign-up'
 
 
 
-
 class App extends React.Component{
  render(){
   return <>
