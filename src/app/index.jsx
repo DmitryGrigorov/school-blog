@@ -10,10 +10,14 @@ import * as Actions from './actions';
 import './style.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.auth();
+  }
+
   render() {
     return (
       <>
-        <Header />
+        <Header user={this.props.user} signOut={this.props.signOut} />
         <Switch>
           <Route path='/sign-in'>
             <SignIn />
@@ -40,7 +44,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    counter: state.applicationReducer.counter
+    counter: state.applicationReducer.counter,
+    user: state.applicationReducer.user
   });
 };
 
