@@ -27,4 +27,4 @@ export default new Config().extend('conf/webpack.common.config.js').merge({
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
-});
+})

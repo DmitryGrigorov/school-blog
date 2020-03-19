@@ -9,4 +9,4 @@ export default new Config().extend('conf/webpack.common.config.js').merge({
   },
   mode: 'production',
   devtool: 'source-map'
-});
+})

@@ -1,55 +1,35 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Header from 'src/components/header';
-import SignIn from 'src/pages/sing-in';
-import * as Actions from './actions';
-import './style.css';
+import React from 'react'
+import {Switch, Route} from 'react-router-dom'
+import {connect} from 'react-redux'
+import * as Actions from './actions'
+import Header from 'src/components/header'
+import Main from 'src/pages/main'
+import About from 'src/pages/about'
+import SignIn from 'src/pages/sign-in'
+import SignUp from 'src/pages/sign-up'
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <SignIn />
-        <div className="footer">
-          count = {this.props.counter}
-          <button
-            onClick={() => this.props.increaseAction(1)}
-          >
-            increase 1
-          </button>
-          <button
-            onClick={() => this.props.increaseAction(55)}
-          >
-            increase 55
-          </button>
-          <button
-            onClick={() => this.props.decreaseAction(1)}
-          >
-            decrease
-          </button>
-        </div>
-      </div>
-    );
-  }
+
+
+
+class App extends React.Component{
+ render(){
+  return <>
+<Header />
+<article>
+ <>
+  <Switch>
+   <Route exact path='/' component={Main} />
+   <Route path='/about' component={About} />
+   <Route path='/sign-in' component={SignIn} />
+   <Route path='/sign-up' component={SignUp} />
+  </Switch>
+ </>
+</article>
+  </>
+ }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    counter: state.applicationReducer.counter
-  });
-};
 
-// const mapDispatchToProps = (dispatch) => {
-//   return ({
-//     dispatch: dispatch,
-//     increaseAction: (payload) => {
-//       dispatch(Actions.increaseAction(payload));
-//     },
-//     decreaseAction: (payload) => {
-//       dispatch(Actions.decreaseAction(payload));
-//     }
-//   });
-// };
 
-export default connect(mapStateToProps, Actions)(App);
+const mapStateToProps = (state) => { return ({ counter: state.applicationReducer.counter }) }
+export default connect(mapStateToProps, Actions)(App)

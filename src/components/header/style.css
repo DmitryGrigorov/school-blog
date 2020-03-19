@@ -1,3 +1,20 @@
-.wrapper {
-  border: 1px solid red;
+Main > Header{
+  background-color: rgba(0, 0, 0, 0.04);
+  display: flex; justify-content: space-between;
+  padding: 4px;
+  width: 100%
+}
+
+
+Main > Header Menu{ display: flex }
+
+Main > Header Menu > *{
+  border: 1px solid grey;
+  padding: 10px 20px;
+  text-decoration: none
+}
+Main > Header Menu > *:not(:last-child){ margin-right: 4px }
+Main > Header Menu > *:hover{
+  background-color: rgba(0, 0, 0, 0.96);
+  color: white
 }

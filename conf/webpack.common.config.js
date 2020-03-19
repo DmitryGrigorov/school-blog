@@ -61,4 +61,4 @@ export default new Config().merge({
       path: '/public'
     })
   ]
-});
+})

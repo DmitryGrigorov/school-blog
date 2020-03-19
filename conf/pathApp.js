@@ -7,4 +7,4 @@ const alias = {
 export default {
   alias,
   root: process.cwd()
-};
+}

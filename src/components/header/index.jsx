@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
-import style from './style.css';
+import React from 'react'
+import {Link} from 'react-router-dom'
+import './style.css';
 
-export default class Header extends Component {
+
+
+export default class Header extends React.Component {
   render() {
     return (
-      <div className={style.wrapper}>
-        header
-      </div>
+      <header>
+       <menu>
+        <Link to='/'>Главная</Link>
+        <Link to='/about'>О сайте</Link>
+       </menu>
+
+       <menu>
+        <Link to='/sign-up'>Регистрация</Link>
+        <Link to='/sign-in'>Авторизация</Link>
+       </menu>
+      </header>
     )
   }
 }
