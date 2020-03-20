@@ -1,25 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {push} from 'connected-react-router'
 import PropTypes from 'prop-types'
 import Input from 'src/components/input'
 import * as Actions from './actions'
-import API from 'src/api'
+
+
 
 class SignIn extends React.Component{
  static propTypes = {
   dataForm: PropTypes.object.isRequired,
   changeFieldAction: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired
+  signInAction: PropTypes.func.isRequired
  }
 
- handlerOnAuthorisation = () => {
+ onAuthorisation = () => {
   const {dataForm} = this.props
-  API.user.signIn(dataForm).then((response) => {
-   console.log(response)
-  })
-
-  this.props.push('/')
+  this.props.signInAction(dataForm)
  }
 
  render(){
@@ -33,7 +29,7 @@ class SignIn extends React.Component{
   <Input id='password' value={this.props.dataForm.password} onChange={this.props.changeFieldAction} />
  </div>
  <div>
-  <button onClick={this.handlerOnAuthorisation}>Авторизоваться</button>
+  <button onClick={this.onAuthorisation}>Авторизоваться</button>
  </div>
   </>
  }
@@ -43,4 +39,4 @@ class SignIn extends React.Component{
 
 
 const mapStateToProps = (state) => ({dataForm: state.signIn.dataForm})
-export default connect(mapStateToProps, {push, ...Actions})(SignIn)
+export default connect(mapStateToProps, Actions)(SignIn)

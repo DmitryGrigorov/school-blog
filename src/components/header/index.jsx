@@ -11,13 +11,22 @@ export default class Header extends React.Component{
  <menu>
   <Link to='/'>Главная</Link>
   <Link to='/about'>О сайте</Link>
+  <Link to='/new-post'>Новая запись</Link>
  </menu>
 
- <menu>
-  <Link to='/sign-up'>Регистрация</Link>
-  <Link to='/sign-in'>Авторизация</Link>
- </menu>
-</header>
+ {!this.props.user
+  ?
+  <menu>
+   <Link to='/sign-up'>Регистрация</Link>
+   <Link to='/sign-in'>Авторизация</Link>
+  </menu>
+  :
+  <div>
+   <p>Привет, {this.props.user.login}!</p>
+   <button onClick={this.props.signOut}>Выйти</button>
+  </div>
+ }
+  </header>
   )
  }
 }

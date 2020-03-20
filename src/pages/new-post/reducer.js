@@ -2,20 +2,20 @@ import cloneDeep from 'lodash/cloneDeep'
 
 const initState = {
  dataForm: {
-  login: '',
-  password: ''
+  title: '',
+  body: ''
  }
 }
 
 const merge = (state, someObject) => {
  const clonnedState = cloneDeep(state)
 
- return Object.assign(clonnedState, someObject)
+ return Object.assign(clonnedState, someObject);
 }
 
-const signInReducer = (state = initState, action) => {
+const newPostReducer = (state = initState, action) => {
  switch (action.type){
-  case 'SIGNIN_CHANGE-DATA-FORM':
+  case 'NEWPOST_CHANGE-DATA-FORM':
    return merge(state, {
     dataForm:{
      ...state.dataForm,
@@ -23,16 +23,11 @@ const signInReducer = (state = initState, action) => {
     }
    })
 
-   case 'SIGNIN_REQUEST':
-    return{
-
-    }
-
-   default:
-    return state
+  default:
+   return state
  }
 }
 
 
 
-export default signInReducer
+export default  newPostReducer
