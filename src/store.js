@@ -5,6 +5,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import applicationReducer from 'src/app/reducer';
 import signInReducer from 'src/pages/sign-in/reducer';
 import signUpReducer from 'src/pages/sign-up/reducer';
+import newPostReducer from 'src/pages/new-post/reducer';
 import {history} from 'src/history';
 
 const logger=createLogger({
@@ -22,7 +23,8 @@ const createRootReducer =(history)=> combineReducers({
     router: connectRouter(history),
     applicationReducer: applicationReducer,
     signIn: signInReducer,
-    signUp: signUpReducer
+    signUp: signUpReducer,
+    newPost: newPostReducer
 });
 
 

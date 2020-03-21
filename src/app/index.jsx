@@ -5,6 +5,8 @@ import * as Actions from './actions.js';
 import Header from '../components/header/index';
 import SignIn from '../pages/sign-in/index';
 import SignUp from '../pages/sign-up/index';
+import About from '../pages/about/index';
+import NewPost from '../pages/new-post/index';
 //  import FooterCounter from '../components/footer-counter/index';
 import './style.css';
 class App extends Component {
@@ -22,10 +24,10 @@ class App extends Component {
             <SignUp />
           </Route>
           <Route path='/new-post'>
-            <h1>New post</h1>
+            <NewPost />
           </Route>
           <Route path='/about'>
-            <h1>About</h1>
+            <About />
           </Route>
           <Route path='/'>
             <h1>MAIN PAGE</h1>
