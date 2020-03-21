@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input/index';
 import * as Actions from './actions';
@@ -11,7 +12,7 @@ import * as Actions from './actions';
        
       };
       onClick=()=>{
-          console.log("redirect to main");
+        this.props.push('/');
       }
     render(){
        
@@ -63,4 +64,6 @@ const mapStateToProps = (state) => ({
     dataForm: state.signUp.dataForm
 });
   
- export default connect(mapStateToProps, Actions)(SignUp);
+ export default connect(mapStateToProps, {
+     push,
+     ...Actions})(SignUp);
