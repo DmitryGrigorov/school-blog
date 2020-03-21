@@ -1,5 +1,6 @@
 const initState = {
-    counter: 0
+    counter: 0, 
+    user: null
   };
   
   export default function appReducer(state = initState, action) {
@@ -14,6 +15,11 @@ const initState = {
           ...state,
           counter: state.counter - action.payload
         });
+        case 'SIGN-IN_SUCESS':
+          return {
+            ...state,
+            user: action.payload
+          }
       default:
         return state;
     }
