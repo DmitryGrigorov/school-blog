@@ -23,8 +23,8 @@ import * as Actions from './actions';
                 />
                 <div>password</div>
                 <Input
-                    id="login"
-                    value={this.props.dataForm.login}
+                    id="password"
+                    value={this.props.dataForm.password}
                     onChange={this.props.changeFieldAction}
                  />
             </div>
