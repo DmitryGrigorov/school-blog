@@ -9,11 +9,16 @@ const enhance = connect(
   }),
   dispatch => ({
     changeFieldAction: ({ fieldId, value }) =>
-      dispatch(Actions.changeFieldAction({ fieldId, value }))
+      dispatch(Actions.changeFieldAction({ fieldId, value })),
+    signUpAction: dataForm => dispatch(Actions.signUpAction(dataForm))
   })
 );
 
 const SignUp = enhance(props => {
+  const onSubmit = () => {
+    props.signUpAction(props.dataForm);
+  };
+
   return (
     <div>
       <div>Login</div>
@@ -30,8 +35,14 @@ const SignUp = enhance(props => {
       />
       <div>First name</div>
       <Input
-        id="nameField"
-        value={props.dataForm.nameField}
+        id="firstName"
+        value={props.dataForm.firstName}
+        onChange={props.changeFieldAction}
+      />
+      <div>Last name</div>
+      <Input
+        id="lastName"
+        value={props.dataForm.lastName}
         onChange={props.changeFieldAction}
       />
       <div>Password</div>
@@ -40,6 +51,7 @@ const SignUp = enhance(props => {
         value={props.dataForm.password}
         onChange={props.changeFieldAction}
       />
+      <button onClick={onSubmit}>Register</button>
     </div>
   );
 });

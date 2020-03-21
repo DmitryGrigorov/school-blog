@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { push } from 'connected-react-router';
-import PropTypes from 'prop-types';
-import Input from 'src/components/input';
-import * as Actions from './actions';
+import PropTypes from "prop-types";
+import Input from "src/components/input";
+import * as Actions from "./actions";
 
 class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
-    changeFieldAction: PropTypes.func.isRequired,
+    changeFieldAction: PropTypes.func.isRequired
   };
 
-  onClick = () => {
-    console.log('this.props', this.props);
-    this.props.push('/')
+  onSubmit = () => {
+    const { dataForm } = this.props;
+    this.props.singInAction(dataForm);
   };
 
   render() {
     return (
       <div>
         <div>
-          <div>
-            login
-          </div>
+          <div>login</div>
           <div>
             <Input
               id="login"
@@ -33,9 +30,7 @@ class SignIn extends Component {
           </div>
         </div>
         <div>
-          <div>
-            password
-          </div>
+          <div>password</div>
           <div>
             <Input
               id="password"
@@ -44,17 +39,14 @@ class SignIn extends Component {
             />
           </div>
         </div>
-        <button onClick={this.onClick}>Login</button>
+        <button onClick={this.onSubmit}>Login</button>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   dataForm: state.signIn.dataForm
 });
 
-export default connect(mapStateToProps, {
-  push,
-  ...Actions
-})(SignIn);
+export default connect(mapStateToProps, Actions)(SignIn);

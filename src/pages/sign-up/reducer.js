@@ -1,7 +1,8 @@
 const initialState = {
   dataForm: {
     login: "",
-    nameField: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: ""
   }
