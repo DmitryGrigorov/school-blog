@@ -10,7 +10,9 @@ import './style.css';
 class App extends Component {
   render() {
     return (
-      <div>
+   
+      // <> - фрагмент
+      <>
         <Header />
         <Switch>
           <Route path='/sign-in'>
@@ -30,7 +32,7 @@ class App extends Component {
           </Route>
         </Switch>
         {/* <FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction}/>  */}
-      </div>
+      </>
     );
   }
 }
