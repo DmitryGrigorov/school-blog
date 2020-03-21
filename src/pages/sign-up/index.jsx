@@ -8,24 +8,11 @@ class SignUp extends Component {
     static propTypes = {
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
-        label: PropTypes.string.isRequired
     };
 
     render() {
         return (
             <div>
-                <div>
-                    <div>
-                        firstName
-                    </div>
-                    <div>
-                        <Input
-                            id="firstName"
-                            value={this.props.dataForm.firstName}
-                            onChange={this.props.changeFieldAction}
-                        />
-                    </div>
-                </div>
                 <div>
                     <div>
                         login
@@ -34,6 +21,30 @@ class SignUp extends Component {
                         <Input
                             id="login"
                             value={this.props.dataForm.login}
+                            onChange={this.props.changeFieldAction}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        first name
+                    </div>
+                    <div>
+                        <Input
+                            id="firstname"
+                            value={this.props.dataForm.firstname}
+                            onChange={this.props.changeFieldAction}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        last name
+                    </div>
+                    <div>
+                        <Input
+                            id="lastname"
+                            value={this.props.dataForm.lastname}
                             onChange={this.props.changeFieldAction}
                         />
                     </div>
@@ -67,11 +78,8 @@ class SignUp extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state);
-    return (
-        { dataForm: state.signUp.dataForm}
-    )
-};
+const mapStateToProps = (state) => ({
+    dataForm: state.signUp.dataForm
+});
 
 export default connect(mapStateToProps, Actions)(SignUp);
