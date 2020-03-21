@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as Actions from './actions.js';
-import Header from '../components/header/index'
+import Header from '../components/header/index';
+import SignIn from '../pages/sign-in/index';
+import './style.css';
 class App extends Component {
   render() {
     return (
       <div>
         <Header />
+        <SignIn/>
+
         <div className='footer'>
         count = {this.props.counter}
         <button
