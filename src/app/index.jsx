@@ -15,7 +15,7 @@ class App extends Component {
    
       // <> - фрагмент
       <>
-        <Header />
+        <Header user={this.props.user} />
         <Switch>
           <Route path='/sign-in'>
             <SignIn />
@@ -41,7 +41,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    counter: state.applicationReducer.counter
+    counter: state.applicationReducer.counter,
+    user: state.applicationReducer.user //добавляем user в пропсы
   });
 };
 
