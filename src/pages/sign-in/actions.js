@@ -1,4 +1,5 @@
 import API from 'src/api';
+import { push } from 'connected-react-router';
 export const changeFieldAction = ({ fieldId, value }) => ({
     type: 'SIGN-IN_CHANGE_DATA_FORM',
     payload: { fieldId, value } //можно просто заменить на payload. Какие поля приходят, такие и уходят
@@ -12,7 +13,8 @@ export const signInAction = (dataForm)=>{ //на верхнем уровне в�
         dispatch({  type: 'SIGN-IN_REQUEST'}); //
 
         const response = await API.user.signIn(dataForm);
-        dispatch({  type: 'SIGN-IN_SUCESS', payload: response.data });
+        dispatch({  type: 'SIGN-IN_SUCESS', payload: response.data });//сделали вход
+        dispatch(push('./'));
       } catch (error){
         dispatch({  type: 'SIGN-IN_FAIL'});
       }
