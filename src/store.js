@@ -6,7 +6,9 @@ import thunk from 'redux-thunk';
 import applicationReducer from 'src/app/reducer';
 import signInReducer from 'src/pages/sing-in/reduce';
 import signUpReducer from 'src/pages/sign-up/reduce';
+import newPostReducer from 'src/pages/new-post/reduce';
 import { history } from 'src/history';
+
 
 const logger = createLogger({
   collapsed: true
@@ -18,7 +20,8 @@ const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
   applicationReducer: applicationReducer,
   signIn: signInReducer,
-  signUp: signUpReducer
+  signUp: signUpReducer,
+  newPost: newPostReducer
 });
 
 // function myMiddleware(store) {
