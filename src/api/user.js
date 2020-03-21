@@ -16,3 +16,10 @@ export function signUp(data){
         data: data
     });
 }
+
+export function auth(){
+    return axiosFetch({
+        url: 'users/auth',
+        method: 'GET'
+    });
+}

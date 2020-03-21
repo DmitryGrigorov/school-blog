@@ -10,6 +10,9 @@ import NewPost from '../pages/new-post/index';
 //  import FooterCounter from '../components/footer-counter/index';
 import './style.css';
 class App extends Component {
+  componentDidMount(){ //приложение только что появилось на странице
+    this.props.auth();
+  }
   render() {
     return (
    
