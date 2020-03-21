@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import * as Actions from './actions.js';
 import Header from '../components/header/index';
 import SignIn from '../pages/sign-in/index';
-import FooterCounter from '../components/footer-counter/index';
+ import FooterCounter from '../components/footer-counter/index';
 import './style.css';
 class App extends Component {
   render() {
     return (
       <div>
         <Header />
-        <SignIn/> 
-        <FooterCounter />
+        <SignIn/>
+        <FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction}/> 
+
        
         
       </div>
