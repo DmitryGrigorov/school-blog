@@ -12,8 +12,8 @@ export default class header extends Component{
                 </ul>
 
                 <ul className={style.wrapperUl}>
-                    <li><Link className={style.link} to="/sign-in">Регистрация</Link></li>
-                    <li><Link className={style.link} to="/sign-up">Логин</Link></li>
+                    <li><Link className={style.link} to="/sign-up">Регистрация</Link></li>
+                    <li><Link className={style.link} to="/sign-in">Логин</Link></li>
                 </ul>
               
             </div>

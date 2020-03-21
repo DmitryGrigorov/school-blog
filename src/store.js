@@ -15,7 +15,6 @@ const logger=createLogger({
 const middlewares =[
     logger, 
     routerMiddleware(history),
-    
 ]
 
 

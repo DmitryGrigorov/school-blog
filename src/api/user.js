@@ -1,17 +1,17 @@
 //все запросы, связанные с юзером
 import axiosFetch from './axios';
 
-function signIn(data){ //принимает логин и пароль
+export function signIn(data){ //принимает логин и пароль
     return axiosFetch({ //возвращает промис
-        url: 'user/signin',
+        url: 'users/signin',
         method: 'POST',
         data: data
     });
 }
 
-function signUp(data){ 
+export function signUp(data){ 
     return axiosFetch({ 
-        url: 'user/signup',
+        url: 'users/signup',
         method: 'POST',
         data: data
     });

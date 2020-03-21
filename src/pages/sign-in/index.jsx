@@ -4,6 +4,7 @@ import { push } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input/index';
 import * as Actions from './actions';
+import API from 'src/api';
 
  class SignIn extends Component{
     static propTypes = {
@@ -11,8 +12,14 @@ import * as Actions from './actions';
         changeFieldAction: PropTypes.func.isRequired,
       };
 
-      onClick=()=>{
-          this.props.push('/');
+      onSubmit=()=>{ //обычно запросы делают не отсюда
+        //   this.props.push('/');
+        const { dataForm } = this.props; //dataform состоит из логина и пароля
+        API.user.signIn(dataForm).then( (response)=> {
+            console.log(response);
+        },(error)=>{
+            console.log(error);
+        });//посылаем данные
       }
     render(){
        
@@ -35,7 +42,7 @@ import * as Actions from './actions';
                  </div>
                 
 
-                 <button onClick={this.onClick}>
+                 <button onClick={this.onSubmit}>
                      Login
                  </button>
             </div>

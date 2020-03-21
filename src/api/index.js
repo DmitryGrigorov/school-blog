@@ -1,6 +1,6 @@
 import * as user from './user';
 
-export { 
+export default { 
     user,
     // newpost
 };
