@@ -9,23 +9,34 @@ import * as Actions from './actions';
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
       };
+
+      onClick=()=>{
+          console.log('redirect to main');
+      }
     render(){
        
         return (
             <div>
              <div>Sign In</div>
                 <div>login</div>
-                <Input
+                <div><Input
                     id="login"
                     value={this.props.dataForm.login}
                     onChange={this.props.changeFieldAction}
-                />
+                /></div>
+                
                 <div>password</div>
-                <Input
+                <div><Input
                     id="password"
                     value={this.props.dataForm.password}
                     onChange={this.props.changeFieldAction}
                  />
+                 </div>
+                
+
+                 <button onClick={this.onClick}>
+                     Login
+                 </button>
             </div>
         );
     }

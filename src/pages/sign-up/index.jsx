@@ -10,41 +10,51 @@ import * as Actions from './actions';
         changeFieldAction: PropTypes.func.isRequired,
        
       };
+      onClick=()=>{
+          console.log("redirect to main");
+      }
     render(){
        
         return (
             <div>
              <div>Sign Up</div>
                 <div>login</div>
-                <Input
+                <div> <Input
                     id="login"
                     value={this.props.dataForm.login}
                     onChange={this.props.changeFieldAction}
-                />
+                /></div>
+               
                  <div>first name</div>
-                <Input
+                 <div><Input
                     id="firstname"
                     value={this.props.dataForm.firstname}
                     onChange={this.props.changeFieldAction}
-                />
+                /></div>
+                
                 <div>last name</div>
-                <Input
+                <div> <Input
                     id="lastname"
                     value={this.props.dataForm.lastname}
                     onChange={this.props.changeFieldAction}
-                />
+                /></div>
+               
                 <div>email</div>
-                <Input
+                <div> <Input
                     id="email"
                     value={this.props.dataForm.email}
                     onChange={this.props.changeFieldAction}
-                />
+                /></div>
+               
                 <div>password</div>
-                <Input
+                <div><Input
                     id="password"
                     value={this.props.dataForm.password}
                     onChange={this.props.changeFieldAction}
-                 />
+                 /></div>
+                <button onClick={this.onClick}>
+                    Sign Up
+                </button>
             </div>
         );
     }
