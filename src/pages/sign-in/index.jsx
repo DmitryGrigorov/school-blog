@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as Actions from './actions'
 
-export default class SignIn extends Component{
+class SignIn extends Component{
     render(){
         return (
             <div>
@@ -10,3 +12,8 @@ export default class SignIn extends Component{
 
     }
 }
+const mapStateToProps=(state)=>({
+    dataForm: state.SignIn.dataForm
+});
+
+export default connect(mapStateToProps, Actions)(SignIn);
