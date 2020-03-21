@@ -17,6 +17,7 @@ export default function appReducer(state = initState, action) {
         counter: state.counter - action.payload
       });
     case 'SIGN-IN_SUCCESS':
+    case 'SIGN-UP_SUCCESS':
     case 'APPLICATION-AUTH':
       return {
         ...state,
