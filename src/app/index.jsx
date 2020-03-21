@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <SignIn/>
+        <SignIn/> 
 
         <div className='footer'>
         count = {this.props.counter}
