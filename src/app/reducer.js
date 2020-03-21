@@ -3,7 +3,7 @@ const initState = {
   };
   
   export default function appReducer(state = initState, action) {
-    switch (action.type) {
+    switch (action.type) { //пытаемся прочитать type и вернуть новый объект
       case 'APPLICATION_INCREASE':
         return ({
           ...state,

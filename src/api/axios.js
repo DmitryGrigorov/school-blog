@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 const axiosFetch = axios.create({
     baseURL: `${window.location.origin}/api/`, //адрес, на котором мы находимся. Зпросы шлем себе
     timeout: 2000, //запросы больше 2 сек не ждем

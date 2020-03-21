@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {createLogger} from 'redux-logger';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
+import thunk from 'redux-thunk';
 
 import applicationReducer from 'src/app/reducer';
 import signInReducer from 'src/pages/sign-in/reducer';
@@ -12,10 +13,14 @@ const logger=createLogger({
     collapsed: true
 });
 
-const middlewares =[
-    logger, 
-    routerMiddleware(history),
-]
+// const middlewares =[
+//     logger, 
+//     routerMiddleware(history),
+// ]
+
+//резульат работы этой функции возвращает middleware
+
+const routerMiddle = routerMiddleware(history);
 
 
 const createRootReducer =(history)=> combineReducers({
@@ -26,8 +31,25 @@ const createRootReducer =(history)=> combineReducers({
     newPost: newPostReducer
 });
 
+// вместо этого используем thunk
 
+// function myMiddleware(store){
+//     return function(next){//next - передать action следующему middleware
+//         return function(action){
+//            if(typeof action === 'function'){
+//                action(store.dispatch, store.getState);
+//            } else{
+//             next(action); //последний middleware пережает в стор
+//            }
+//         }
+//     }
+// };
 
-const store=createStore(createRootReducer(history), applyMiddleware(...middlewares)); //сюда мы можем передать только одну функцию, для этого combineReducers
+const store=createStore(
+    createRootReducer(history), 
+    applyMiddleware(routerMiddle, logger, thunk)); //сюда мы можем передать только одну функцию, для этого combineReducers
+
+//store.dispatch(); //передаем объекты, единственный способ дать стору понять что что-то произошло
+//любой объект - это action
 
 export default store;

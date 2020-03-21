@@ -8,7 +8,9 @@ import App from './app';
 import store from './store';
 
 ReactDOM.render(
-  <Provider store={store}>
+  // даем react-redux понять что такое стор
+  //у privider ссылка на store, у store ссылка на dispatch
+  <Provider store={store}> 
     <ConnectedRouter history={history}>
   <App />
   </ConnectedRouter>
