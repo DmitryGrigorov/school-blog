@@ -27,13 +27,8 @@ class App extends Component {
           </Route>
           <Route path='/'>
             <h1>MAIN PAGE</h1>
-            
           </Route>
         </Switch>
-        
-        
-
-        
         {/* <FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction}/>  */}
       </div>
     );
