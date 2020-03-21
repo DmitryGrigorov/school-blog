@@ -8,7 +8,6 @@ import * as Actions from './actions';
     static propTypes = {
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
-        label: PropTypes.string.isRequired
       };
     render(){
        

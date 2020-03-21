@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom'; 
 import * as Actions from './actions.js';
 import Header from '../components/header/index';
 import SignIn from '../pages/sign-in/index';
@@ -11,8 +12,26 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <SignIn/>
-        <SignUp/> 
+        <Switch>
+          <Route path='/sign-in'>
+            <SignIn />
+          </Route>
+          <Route path='/sign-up'>
+            <SignUp />
+          </Route>
+          <Route path='/new-post'>
+            <h1>New post</h1>
+          </Route>
+          <Route path='/about'>
+            <h1>About</h1>
+          </Route>
+          <Route path='/'>
+            <h1>MAIN PAGE</h1>
+            
+          </Route>
+        </Switch>
+        
+        
 
         
         {/* <FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction}/>  */}
