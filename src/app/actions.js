@@ -15,6 +15,7 @@ export const increaseAction = (payload = 1) => {
     return async function (dispatch){
       try{ 
         const response = await API.user.auth();
+        dispatch({type: 'APPLICATION-AUTH', payload: response.data })
       } catch(error){
        
       }

@@ -16,10 +16,12 @@ const initState = {
           counter: state.counter - action.payload
         });
         case 'SIGN-IN_SUCESS':
+        case 'APPLICATION-AUTH':
           return {
             ...state,
             user: action.payload
-          }
+          };
+          
       default:
         return state;
     }
