@@ -5,6 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 import Header from 'src/components/header';
 import SignIn from 'src/pages/sing-in';
 import SignUp from 'src/pages/sign-up'
+import About from 'src/pages/about';
+import NewPost from 'src/pages/new-post';
 // import FooterCounter from "src/components/footer-counter";
 import * as Actions from './actions';
 import './style.css';
@@ -21,12 +23,8 @@ class App extends Component {
           <Route path='/sign-up'>
             <SignUp />
           </Route>
-          <Route path='/new-post'>
-            <h1>New post</h1>
-          </Route>
-          <Route path='/about'>
-            <h1>About</h1>
-          </Route>
+          <Route path='/new-post' component={NewPost}/>
+          <Route path='/about' component={About}/>
           <Route path='/'>
             <h1>MAIN PAGE</h1>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi excepturi illum incidunt magni nam officia qui sed similique suscipit unde.
