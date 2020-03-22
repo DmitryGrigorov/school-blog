@@ -23,3 +23,10 @@ export function auth(){
         method: 'GET'
     });
 }
+
+export function signOut(){
+    return axiosFetch({
+      url: 'users/signout',
+      method: 'GET'
+    });
+  }

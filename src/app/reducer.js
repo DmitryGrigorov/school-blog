@@ -21,6 +21,11 @@ const initState = {
             ...state,
             user: action.payload
           };
+        case 'APPLICATION-SIGN-OUT':
+          return {
+            ...state,
+            user: null
+          };
           
       default:
         return state;

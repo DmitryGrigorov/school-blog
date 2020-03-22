@@ -20,7 +20,8 @@ export default class header extends Component{
                 :
                 <ul className={style.wrapperUl}>
                     <li>Привет: </li>
-                    <li>{this.props.user.login}</li>
+                    <li>{this.props.user.login}</li>\
+                    <li onClick={this.props.signOut}> Выход</li>
                 </ul>
                 }
                 

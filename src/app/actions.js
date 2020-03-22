@@ -1,4 +1,5 @@
 import API from 'src/api';
+import axiosFetch from '../api/axios';
 export const increaseAction = (payload = 1) => {
     return ({
       type: 'APPLICATION_INCREASE',
@@ -21,3 +22,14 @@ export const increaseAction = (payload = 1) => {
       }
     }
   };
+
+export const signOut = () => {
+  return async function (dispatch){
+    try { 
+      const response = await API.user.signOut();
+      dispatch ({type: 'APPLICATION-SIGN-OUT', payload: response.data })
+    } catch (error){
+
+    }
+  }
+};

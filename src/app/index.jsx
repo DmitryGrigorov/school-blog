@@ -18,7 +18,7 @@ class App extends Component {
    
       // <> - фрагмент
       <>
-        <Header user={this.props.user} />
+        <Header user={this.props.user} signOut={this.props.signOut} />
         <Switch>
           <Route path='/sign-in'>
             <SignIn />
