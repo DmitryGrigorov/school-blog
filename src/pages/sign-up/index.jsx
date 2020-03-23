@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
 import * as Actions from './actions';
@@ -8,6 +8,11 @@ class SignUp extends Component {
     static propTypes = {
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
+        signUpAction: PropTypes.func.isRequired
+    };
+    onSubmit = () => {
+        const {dataForm} = this.props;
+        this.props.signUpAction(dataForm);
     };
 
     render() {
@@ -27,30 +32,6 @@ class SignUp extends Component {
                 </div>
                 <div>
                     <div>
-                        first name
-                    </div>
-                    <div>
-                        <Input
-                            id="firstname"
-                            value={this.props.dataForm.firstname}
-                            onChange={this.props.changeFieldAction}
-                        />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        last name
-                    </div>
-                    <div>
-                        <Input
-                            id="lastname"
-                            value={this.props.dataForm.lastname}
-                            onChange={this.props.changeFieldAction}
-                        />
-                    </div>
-                </div>
-                <div>
-                    <div>
                         email
                     </div>
                     <div>
@@ -63,6 +44,31 @@ class SignUp extends Component {
                 </div>
                 <div>
                     <div>
+                        first name
+                    </div>
+                    <div>
+                        <Input
+                            id="firstName"
+                            value={this.props.dataForm.firstName}
+                            onChange={this.props.changeFieldAction}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        last name
+                    </div>
+                    <div>
+                        <Input
+                            id="lastName"
+                            value={this.props.dataForm.lastName}
+                            onChange={this.props.changeFieldAction}
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <div>
                         password
                     </div>
                     <div>
@@ -73,6 +79,7 @@ class SignUp extends Component {
                         />
                     </div>
                 </div>
+                <button onClick={this.onSubmit}>Sign Up</button>
             </div>
         );
     }
