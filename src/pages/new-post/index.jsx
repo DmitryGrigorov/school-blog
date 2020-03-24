@@ -2,14 +2,19 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Input from 'src/components/input/index';
 import PropTypes from 'prop-types';
- import * as Actions from './actions';
+import * as Actions from './actions';
 
 class NewPost extends Component {
     static propTypes = {
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
       };
+      onSubmit=()=>{ 
+        const { dataForm } = this.props; 
+        this.props.createNewPostAction(dataForm);
+      }; 
     render(){
+        
         return(
             <div>
                <h1>New Post</h1> 
@@ -25,10 +30,14 @@ class NewPost extends Component {
                 Body
             </div>
             <Input 
-                id='body'
-                value={this.props.dataForm.body}
+                id='content'
+                value={this.props.dataForm.content}
                 onChange={this.props.changeFieldAction}
             />
+            <div>
+                <button onClick={this.onSubmit}>Отправить</button>
+            </div>
+           
             </div>
         )
     }

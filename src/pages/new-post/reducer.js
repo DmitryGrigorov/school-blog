@@ -3,7 +3,7 @@ import cloneDeep from 'lodash/cloneDeep';
 const initState = {
     dataForm: {
       title: '',
-      body: ''
+      content: ''
     }
   };
 
@@ -22,6 +22,8 @@ const initState = {
             [action.payload.fieldId]: action.payload.value
           }
         });
+        
+
       default:
         return state;
     }
