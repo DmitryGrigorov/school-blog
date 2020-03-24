@@ -11,8 +11,8 @@ import * as Actions from './actions';
         changeFieldAction: PropTypes.func.isRequired,
        
       };
-      onClick=()=>{
-        this.props.push('/');
+      onSubmit=()=>{
+        this.props.signUpAction(this.props.dataForm);
       }
     render(){
        
@@ -28,15 +28,15 @@ import * as Actions from './actions';
                
                  <div>first name</div>
                  <div><Input
-                    id="firstname"
-                    value={this.props.dataForm.firstname}
+                    id="firstName"
+                    value={this.props.dataForm.firstName}
                     onChange={this.props.changeFieldAction}
                 /></div>
                 
                 <div>last name</div>
                 <div> <Input
-                    id="lastname"
-                    value={this.props.dataForm.lastname}
+                    id="lastName"
+                    value={this.props.dataForm.lastName}
                     onChange={this.props.changeFieldAction}
                 /></div>
                
@@ -53,7 +53,7 @@ import * as Actions from './actions';
                     value={this.props.dataForm.password}
                     onChange={this.props.changeFieldAction}
                  /></div>
-                <button onClick={this.onClick}>
+                <button onClick={this.onSubmit}>
                     Sign Up
                 </button>
             </div>
