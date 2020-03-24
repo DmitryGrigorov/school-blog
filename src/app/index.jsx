@@ -7,7 +7,7 @@ import SignIn from '../pages/sign-in/index';
 import SignUp from '../pages/sign-up/index';
 import About from '../pages/about/index';
 import NewPost from '../pages/new-post/index';
-//  import FooterCounter from '../components/footer-counter/index';
+import MainPage from '../pages/main';
 import './style.css';
 class App extends Component {
   componentDidMount(){ //приложение только что появилось на странице
@@ -20,23 +20,18 @@ class App extends Component {
       <>
         <Header user={this.props.user} signOut={this.props.signOut} />
         <Switch>
-          <Route path='/sign-in'>
-            <SignIn />
-          </Route>
-          <Route path='/sign-up'>
-            <SignUp />
-          </Route>
-          <Route path='/new-post'>
-            <NewPost />
-          </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/'>
-            <h1>MAIN PAGE</h1>
-          </Route>
+          <Route path='/sign-in' exact={true} component={SignIn} />
+            
+          <Route path='/sign-up' exact={true} component={SignUp} />
+           
+          <Route path='/new-post' exact={true} component={NewPost}/>
+            
+          <Route path='/about' exact={true} component={About}/>
+            
+          <Route path='/' exact={true} component={MainPage} />
+            
         </Switch>
-        {/* <FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction}/>  */}
+        
       </>
     );
   }
