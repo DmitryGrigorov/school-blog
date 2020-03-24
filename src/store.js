@@ -8,6 +8,7 @@ import signInReducer from 'src/pages/sign-in/reducer';
 import signUpReducer from 'src/pages/sign-up/reducer';
 import newPostReducer from 'src/pages/new-post/reducer';
 import mainReducer from 'src/pages/main/reducer';
+import postReducer from 'src/pages/post/reducer';
 import {history} from 'src/history';
 
 const logger=createLogger({
@@ -30,7 +31,8 @@ const createRootReducer =(history)=> combineReducers({
     signIn: signInReducer,
     signUp: signUpReducer,
     newPost: newPostReducer,
-    main: mainReducer
+    main: mainReducer,
+    post: postReducer
 });
 
 // вместо этого используем thunk

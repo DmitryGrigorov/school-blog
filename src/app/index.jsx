@@ -8,6 +8,7 @@ import SignUp from '../pages/sign-up/index';
 import About from '../pages/about/index';
 import NewPost from '../pages/new-post/index';
 import MainPage from '../pages/main';
+import Post from '../pages/post';
 import './style.css';
 class App extends Component {
   componentDidMount(){ //приложение только что появилось на странице
@@ -29,6 +30,8 @@ class App extends Component {
           <Route path='/about' exact={true} component={About}/>
             
           <Route path='/' exact={true} component={MainPage} />
+
+          <Route path='/post/:id' exact={true} component={Post} />
             
         </Switch>
         

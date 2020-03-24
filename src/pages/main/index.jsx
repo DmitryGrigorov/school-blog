@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as Actions from './actions';
+import style from './style.css';
 class MainPage extends Component {
     componentDidMount(){
         this.props.getPostsAction();
@@ -11,8 +13,12 @@ class MainPage extends Component {
             <div>{posts.map(function(postItem){
                 return (
                 <div>
-                    <div>{postItem.title}</div>
-                    <div>{postItem.content}</div>
+                     <div className={style.postList}>
+                        <div className={style.postTitle}>
+                            <Link to={`/post/${postItem.id}`}>{postItem.title}</Link>
+                            </div>
+                        <div className={style.postContent}>{postItem.content}</div>
+                    </div>
                    
 
                 </div>

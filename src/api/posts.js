@@ -7,3 +7,10 @@ export function getList(params) {
     params
   });
 }
+
+export function getPostById(id){
+    return axiosFetch({
+        url: `posts/${id}`,
+        method: 'GET'
+    });
+}
