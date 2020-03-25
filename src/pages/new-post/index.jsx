@@ -12,14 +12,21 @@ const enhance = connect(
   Actions
 );
 
-const NewPost = enhance(props => (
-  <div>
-    <div>Title</div>
-    <Input id="title" onChange={props.newPostAction} value={props.title} />
-    <div>Body</div>
-    <Input id="body" onChange={props.newPostAction} value={props.body} />
-  </div>
-));
+const NewPost = enhance(props => {
+  const onSubmit = () => {
+    props.createNewPostAction({ title: props.title, content: props.body });
+  };
+
+  return (
+    <div>
+      <div>Title</div>
+      <Input id="title" onChange={props.newPostAction} value={props.title} />
+      <div>Body</div>
+      <Input id="body" onChange={props.newPostAction} value={props.body} />
+      <button onClick={onSubmit}>Submit</button>
+    </div>
+  );
+});
 
 NewPost.propTypes = {
   title: PropTypes.string,
