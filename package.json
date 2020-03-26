@@ -1,11 +1,11 @@
 {
-  "name": "school-blog",
+  "name": "fe.project",
   "version": "1.0.0",
-  "description": "",
+  "description": "1. Создать в `src/pages/sign-up` три файла: `index.jsx`, `actions.js`, `reducer.js`\r 2. Подключить `reducer.js` в стор `src/store.js`\r 3. Подключить компонент `src/pages/sign-up/index.jsx` через `connect()()`\r 4. Подключить страницу `<SignUp />` заместо странины `<SignIn />` в компоненте `<App />`\r 5. На странице должно быть 4 поля ввода: `login, email, firstName, password`\r 6. Данные введенные в поля нужно хранить в сторе.\r 7. Обратите внимание что `action.type` не должен совпадать с другими экшенами (иначе ваш экшен будет обрабатываться несколькими редьюсерами и как результат - менять стейт несколько раз)",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --progress",
-    "build": "NODE_ENV=production webpack"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +34,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "connected-react-router": "^6.8.0",
+    "cross-env": "^7.0.2",
     "history": "^4.10.1",
     "lodash": "^4.17.15",
     "normalize.css": "^8.0.1",
@@ -51,5 +52,13 @@
     "not IE 11",
     "not IE_Mob 11",
     "maintained node versions"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryGrigorov/school-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DmitryGrigorov/school-blog/issues"
+  },
+  "homepage": "https://github.com/DmitryGrigorov/school-blog#readme"
 }

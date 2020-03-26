@@ -6,6 +6,7 @@ const applicationReducer = (state = initState, action) => {
  switch(action.type){
   case 'APPLICATION_AUTHETICATION':
   case 'SIGNIN_SUCCESS':
+  case 'SIGNUP_SUCCESS':
    return{
     ...state,
     user: action.payload
@@ -18,6 +19,7 @@ const applicationReducer = (state = initState, action) => {
    }
 
   case 'SIGNIN_FAIL':
+  case 'SIGNUP_SUCCESS':
    return{
 
    }
