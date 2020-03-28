@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import signInReducer from 'src/pages/sing-in/reduce';
+import signUpReducer from "./pages/sing-up/reduce";
 
 const rootReducer = combineReducers({
-  signIn: signInReducer
+  signIn: signInReducer,
+  singUp: signUpReducer
 });
 
 const logger = createLogger({
