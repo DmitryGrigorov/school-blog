@@ -4,7 +4,6 @@ export default class Input extends Component {
   onChange = (e) => {
     const value = e.target.value;
     const { id, onChange } = this.props;
-
     onChange({ fieldId: id, value });
   };
 

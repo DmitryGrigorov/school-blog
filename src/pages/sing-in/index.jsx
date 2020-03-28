@@ -8,7 +8,6 @@ class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired
   };
 
   render() {
