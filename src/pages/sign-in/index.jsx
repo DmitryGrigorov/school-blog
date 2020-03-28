@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { push } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
 import * as Actions from './actions';
@@ -9,13 +9,12 @@ class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
-    singInAction: PropTypes.func.isRequired,
   };
 
-  onSubmit = () => {
-    const { dataForm } = this.props;
-    this.props.singInAction(dataForm);
-  };
+  onClick = () => {
+    console.log('this props', this.props);
+    this.props.push('/');
+  }
 
   render() {
     return (
@@ -44,14 +43,17 @@ class SignIn extends Component {
             />
           </div>
         </div>
-        <button onClick={this.onSubmit}>Login</button>
+        <button onClick={this.onClick}>Login</button>
       </div>
     );
   }
 }
 
-const stateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   dataForm: state.signIn.dataForm
 });
 
-export default connect(stateToProps, Actions)(SignIn);
+export default connect(mapStateToProps, {
+  push,
+  ...Actions
+})(SignIn);

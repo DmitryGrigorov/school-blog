@@ -3,30 +3,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
 import * as Actions from './actions';
-import style from './style.css';
 
-class SignIn extends Component {
+class SignUp extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
   };
 
-  onSubmit = () => {
-    this.props.signUpAction(this.props.dataForm);
-  };
-
-  checkLogin = () => {
-    const { checkLoginAction, dataForm } = this.props;
-
-    checkLoginAction(dataForm.login);
-  };
-
   render() {
-    const { errors } = this.props;
-
     return (
-      <div className={style.signUpWrapper}>
-        <div className={style.row}>
+      <div>
+        <div>
           <div>
             login
           </div>
@@ -35,38 +22,34 @@ class SignIn extends Component {
               id="login"
               value={this.props.dataForm.login}
               onChange={this.props.changeFieldAction}
-              onBlur={this.checkLogin}
-              error={errors.login}
             />
           </div>
         </div>
-        <div className={style.row}>
+        <div>
           <div>
             first name
           </div>
           <div>
             <Input
-              id="firstName"
-              value={this.props.dataForm.firstName}
+              id="firstname"
+              value={this.props.dataForm.firstname}
               onChange={this.props.changeFieldAction}
-              error={errors.firstName}
             />
           </div>
         </div>
-        <div className={style.row}>
+        <div>
           <div>
             last name
           </div>
           <div>
             <Input
-              id="lastName"
-              value={this.props.dataForm.lastName}
+              id="lastname"
+              value={this.props.dataForm.lastname}
               onChange={this.props.changeFieldAction}
-              error={errors.lastName}
             />
           </div>
         </div>
-        <div className={style.row}>
+        <div>
           <div>
             email
           </div>
@@ -75,11 +58,10 @@ class SignIn extends Component {
               id="email"
               value={this.props.dataForm.email}
               onChange={this.props.changeFieldAction}
-              error={errors.email}
             />
           </div>
         </div>
-        <div className={style.row}>
+        <div>
           <div>
             password
           </div>
@@ -88,12 +70,8 @@ class SignIn extends Component {
               id="password"
               value={this.props.dataForm.password}
               onChange={this.props.changeFieldAction}
-              error={errors.password}
             />
           </div>
-        </div>
-        <div className={style.row}>
-          <button onClick={this.onSubmit}>Зарегистрироваться</button>
         </div>
       </div>
     );
@@ -101,8 +79,7 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  dataForm: state.signUp.dataForm,
-  errors: state.signUp.errors
+  dataForm: state.signUp.dataForm
 });
 
-export default connect(mapStateToProps, Actions)(SignIn);
+export default connect(mapStateToProps, Actions)(SignUp);

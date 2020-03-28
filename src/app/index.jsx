@@ -1,33 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
-
+import { Switch, Route} from 'react-router-dom';
 import Header from 'src/components/header';
-import MainPage from 'src/pages/main';
-import SignIn from 'src/pages/sing-in';
-import SignUp from 'src/pages/sign-up'
-import Post from 'src/pages/post';
-import NewPost from 'src/pages/new-post';
+import SignIn from 'src/pages/sign-in';
+import SignUp from 'src/pages/sign-up';
+import FooterCounter from 'src/components/footer-counter'
 import * as Actions from './actions';
 import './style.css';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.auth();
-  }
-
   render() {
     return (
       <>
-        <Header user={this.props.user} signOut={this.props.signOut} />
+        <Header />
         <Switch>
-          <Route path='/sign-in' exact={true} component={SignIn} />
-          <Route path='/sign-up' exact={true} component={SignUp} />
-          {this.props.user && <Route path='/new-post' exact={true} component={NewPost} />}
-          <Route path='/about' exact={true} render={() => <h1>About</h1>} />
-          <Route path='/post/:id' exact={true} component={Post} />
-          <Route path='/' exact={true} component={MainPage} />
+          <Route path='/sign-in'>
+            <SignIn />
+          </Route>
+
+          <Route path='/sign-up'>
+            <SignUp />
+          </Route>
+
+          <Route path='/new-post'>
+            <h2>New post</h2>
+          </Route>
+
+          <Route path='/about'>
+            <h2>About</h2>
+          </Route>
+
+          <Route path='/'>
+            <h1>Main page</h1>
+          </Route>
+
         </Switch>
+        
+        
+        {/* <FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction}/> */}
       </>
     );
   }
@@ -35,7 +45,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    user: state.applicationReducer.user
+    counter: state.applicationReducer.counter
   });
 };
 
