@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
 import * as Actions from './actions';
+import style from './style.css'
+import {Link} from "react-router-dom";
 
 class SignUp extends Component {
     static propTypes = {
@@ -12,56 +14,52 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div>
-                <div>
+            <>
+                <div className={style.input}>
                     <div>
-                        login
-                    </div>
-                    <div>
+                        <p>login</p>
                         <Input
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
                         />
                     </div>
-                </div>
-                <div>
                     <div>
-                        email
-                    </div>
-                    <div>
+                        <p>e-mail</p>
                         <Input
                             id="email"
                             value={this.props.dataForm.email}
                             onChange={this.props.changeFieldAction}
                         />
                     </div>
-                </div>
-                <div>
                     <div>
-                        firstname
-                    </div>
-                    <div>
+                        <p>firsname</p>
                         <Input
                             id="firstName"
                             value={this.props.dataForm.firstName}
                             onChange={this.props.changeFieldAction}
                         />
                     </div>
-                </div>
-                <div>
                     <div>
-                        password
-                    </div>
-                    <div>
+                        <p>password</p>
                         <Input
                             id="password"
                             value={this.props.dataForm.password}
                             onChange={this.props.changeFieldAction}
                         />
                     </div>
+
                 </div>
-            </div>
+                <div className={style.buttonSing}>
+                    <div className={style.left}>
+                        <Link to='/sing-in'>Sing-In?</Link>
+                    </div>
+                    <div className={style.right}>
+                        <button>Sing-Up</button>
+                    </div>
+                </div>
+            </>
+
         );
     }
 }

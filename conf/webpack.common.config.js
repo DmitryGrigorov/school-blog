@@ -27,6 +27,14 @@ export default new Config().merge({
         exclude: /node_modules/,
       },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         test: /\.css$/,
         include: pathApp.appPath,
         use: ExtractTextPlugin.extract({
