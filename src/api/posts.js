@@ -22,3 +22,17 @@ export function createNewPost(data) {
     data: data
   });
 }
+
+export function likePost(id) {
+  return axiosFetch({
+    url: `/posts/like/${id}`,
+    method: "PUT"
+  });
+}
+
+export function dislikePost(id) {
+  return axiosFetch({
+    url: `/posts/dislike/${id}`,
+    method: "PUT"
+  });
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as Actions from "./actions";
+import Button from "../../components/button";
 import style from "./style.css";
 
 class PostPage extends Component {
@@ -8,6 +9,16 @@ class PostPage extends Component {
     const { match } = this.props;
     this.props.getPostDataAction(match.params.id);
   }
+
+  handleLikeClick = () => {
+    const { match } = this.props;
+    this.props.likePostAsync(match.params.id);
+  };
+
+  handleDislikeClick = () => {
+    const { match } = this.props;
+    this.props.dislikePostAsync(match.params.id);
+  };
 
   render() {
     const { data } = this.props;
@@ -18,6 +29,7 @@ class PostPage extends Component {
           <div className={style.postWrapper}>
             <div className={style.postTitle}>{data.title}</div>
             <div className={style.postContent}>{data.content}</div>
+            <Button onClick={this.handleLikeClick}>👍</Button>
           </div>
         ) : (
           <div>loading...</div>
