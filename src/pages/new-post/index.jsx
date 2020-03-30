@@ -2,7 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Input from "components/input";
+import Textarea from "src/components/textarea";
+import Button from "src/components/button";
 import * as Actions from "./actions";
+import s from "./style.css";
 
 const enhance = connect(
   state => ({
@@ -18,12 +21,18 @@ const NewPost = enhance(props => {
   };
 
   return (
-    <div>
-      <div>Title</div>
-      <Input id="title" onChange={props.newPostAction} value={props.title} />
-      <div>Body</div>
-      <Input id="body" onChange={props.newPostAction} value={props.body} />
-      <button onClick={onSubmit}>Submit</button>
+    <div className={s.postFormWrapper}>
+      <div className={s.row}>
+        <div>Title</div>
+        <Input id="title" onChange={props.newPostAction} value={props.title} />
+      </div>
+      <div className={s.row}>
+        <div>Body</div>
+        <Textarea id="body" onChange={props.newPostAction} value={props.body} />
+      </div>
+      <div className={s.row}>
+        <Button onClick={onSubmit}>Submit</Button>
+      </div>
     </div>
   );
 });

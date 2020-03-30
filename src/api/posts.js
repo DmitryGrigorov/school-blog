@@ -15,7 +15,7 @@ export function getPostById(id) {
   });
 }
 
-export function postNewPost(data) {
+export function createNewPost(data) {
   return axiosFetch({
     url: "/posts",
     method: "POST",

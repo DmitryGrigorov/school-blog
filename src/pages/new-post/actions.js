@@ -8,9 +8,8 @@ export const newPostAction = ({ fieldId, value }) => ({
 
 export const createNewPostAction = data => async dispatch => {
   try {
-    console.log(data);
     dispatch({ type: "CREATE_NEW_POST_REQUEST" });
-    const response = await API.posts.postNewPost(data);
+    await API.posts.createNewPost(data);
     dispatch({ type: "CREATE_NEW_POST_SUCCESS" });
     dispatch(push("/"));
   } catch (error) {

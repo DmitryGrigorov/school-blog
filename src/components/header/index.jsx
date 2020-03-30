@@ -17,11 +17,13 @@ export default class Header extends Component {
               О сайте
             </Link>
           </li>
-          <li>
-            <Link className={style.link} to="/new-post">
-              Новый пост
-            </Link>
-          </li>
+          {this.props.user && (
+            <li>
+              <Link className={style.link} to="/new-post">
+                Новый пост
+              </Link>
+            </li>
+          )}
         </ul>
         {!this.props.user ? (
           <ul className={style.wrapperUl}>

@@ -8,11 +8,21 @@ export const changeFieldAction = ({ fieldId, value }) => ({
 
 export const signUpAction = dataForm => async dispatch => {
   try {
+    console.log(dataForm);
     dispatch({ type: "SIGN-UP_REQUEST" });
     const response = await API.user.signUp(dataForm);
     dispatch({ type: "SIGN-UP_SUCCESS", payload: response.data });
     dispatch(push("/"));
   } catch (err) {
-    dispatch({ type: "SIGN-UP_FAIL" });
+    dispatch({ type: "SIGN-UP_FAIL", payload: error.response.data });
   }
 };
+
+export function checkLoginAction(login) {
+  return async function(dispatch) {
+    try {
+      const response = await API.user.checkLogin(login);
+      dispatch({ type: "SIGN_UP_CHECK_LOGIN_SUCCESS", payload: response.data });
+    } catch (error) {}
+  };
+}
