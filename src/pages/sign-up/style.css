@@ -1,8 +1,13 @@
 .signUpWrapper {
   width: 500px;
-  border: 1px solid black;
+  border: 1px solid darkgrey;
   margin: 100px auto;
   padding: 40px 20px;
+  border-radius: 6px;
+}
+
+.signUpWrapper input {
+  margin-top: 20px;
 }
 
 .row {
@@ -11,4 +16,13 @@
 
 .row:last-child {
   margin-bottom: 0;
+}
+
+.submit {
+  margin-top: 20px;
+  padding: 10px 20px;
+  line-height: 1.5;
+  background-color: #054ef8;
+  color: white;
+  border-radius: 6px;
 }

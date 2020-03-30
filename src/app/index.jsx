@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from 'src/components/header';
 import MainPage from 'src/pages/main';
 import SignIn from 'src/pages/sing-in';
+import TestPage from 'src/pages/test-page';
 import SignUp from 'src/pages/sign-up'
 import Post from 'src/pages/post';
 import NewPost from 'src/pages/new-post';
@@ -21,6 +22,7 @@ class App extends Component {
       <>
         <Header user={this.props.user} signOut={this.props.signOut} />
         <Switch>
+          <Route path='/test-page' exact={true} component={TestPage} />
           <Route path='/sign-in' exact={true} component={SignIn} />
           <Route path='/sign-up' exact={true} component={SignUp} />
           {this.props.user && <Route path='/new-post' exact={true} component={NewPost} />}
