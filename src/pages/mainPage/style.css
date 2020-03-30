@@ -1,3 +1,7 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
@@ -11,7 +15,7 @@
     width: 60%;
     height: 61vh;
     color: #fafafa;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(245, 245, 245, 1);
     padding: 100px;
     box-sizing: border-box;
     display: flex;
@@ -25,6 +29,8 @@
     line-height: 100%;
     font-family: 'Permanent Marker', sans-serif;
     text-align: center;
+    color: black;
+    text-shadow: 5px 5px 10px #d0d0d0, -5px -5px 10px #ffffff;
 }
 
 .components {

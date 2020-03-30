@@ -15,6 +15,8 @@ export default class Input extends Component {
         type="text"
         value={value}
         onChange={this.onChange}
+        onFocus={this.props.onFocus}
+        // onBlur={this.props.onBlur}
       />
     );
   }

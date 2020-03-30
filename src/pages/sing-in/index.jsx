@@ -22,6 +22,7 @@ class SignIn extends Component {
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
+                            onFocus={this.props.onFocus}
                         />
                     </div>
                     <div className={style.inputDiv}>
@@ -38,7 +39,7 @@ class SignIn extends Component {
                         <Link to='/sing-up'>Sing-Up?</Link>
                     </div>
                     <div className={style.right}>
-                        <button>Sing-In</button>
+                        <button onFocus={this.props.onFocus}>Sing-In</button>
                     </div>
                 </div>
             </>

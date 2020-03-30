@@ -22,6 +22,8 @@ class SignUp extends Component {
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
+                            onFocus={this.onFocus}
+                            onBlur={this.onBlur}
                         />
                     </div>
                     <div>
@@ -52,10 +54,15 @@ class SignUp extends Component {
                 </div>
                 <div className={style.buttonSing}>
                     <div className={style.left}>
-                        <Link to='/sing-in'>Sing-In?</Link>
+                        <Link to='/sing-in'
+                              onFocus={this.onFocus}
+                              onBlur={this.onBlur}
+                        >Sing-In?</Link>
                     </div>
                     <div className={style.right}>
-                        <button>Sing-Up</button>
+                        <button onFocus={this.onFocus}
+                                onBlur={this.onBlur}
+                        >Sing-Up</button>
                     </div>
                 </div>
             </>
