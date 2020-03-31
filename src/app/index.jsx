@@ -3,34 +3,32 @@ import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 import Header from 'src/components/header';
+import MainPage from 'src/pages/main';
 import SignIn from 'src/pages/sing-in';
-import SignUp from 'src/pages/sign-up'
+import SignUp from 'src/pages/sign-up';
+import Post from 'src/pages/post';
 import About from 'src/pages/about';
 import NewPost from 'src/pages/new-post';
-// import FooterCounter from "src/components/footer-counter";
 import * as Actions from './actions';
 import './style.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.auth();
+  }
+
   render() {
     return (
       <>
-        <Header />
+        <Header user={this.props.user} signOut={this.props.signOut} />
         <Switch>
-          <Route path='/sign-in'>
-            <SignIn />
-          </Route>
-          <Route path='/sign-up'>
-            <SignUp />
-          </Route>
-          <Route path='/new-post' component={NewPost}/>
-          <Route path='/about' component={About}/>
-          <Route path='/'>
-            <h1>MAIN PAGE</h1>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi excepturi illum incidunt magni nam officia qui sed similique suscipit unde.
-          </Route>
+          <Route path='/sign-in' exact={true} component={SignIn} />
+          <Route path='/sign-up' exact={true} component={SignUp} />
+          <Route path='/new-post' exact={true} component={NewPost} />
+          <Route path='/about' exact={true} component={About} />
+          <Route path='/post/:id' exact={true} component={Post} />
+          <Route path='/' exact={true} component={MainPage} />
         </Switch>
-        {/*<FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction} />*/}
       </>
     );
   }
@@ -38,20 +36,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    counter: state.applicationReducer.counter
+    user: state.applicationReducer.user
   });
 };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return ({
-//     dispatch: dispatch,
-//     increaseAction: (payload) => {
-//       dispatch(Actions.increaseAction(payload));
-//     },
-//     decreaseAction: (payload) => {
-//       dispatch(Actions.decreaseAction(payload));
-//     }
-//   });
-// };
 
 export default connect(mapStateToProps, Actions)(App);

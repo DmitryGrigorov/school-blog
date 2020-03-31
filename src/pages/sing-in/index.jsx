@@ -10,11 +10,12 @@ class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
+    singInAction: PropTypes.func.isRequired,
   };
 
-  onClick = () => {
-    console.log('this.props', this.props);
-    this.props.push('/')
+  onSubmit = () => {
+    const { dataForm } = this.props;
+    this.props.singInAction(dataForm);
   };
 
   render() {
@@ -44,7 +45,7 @@ class SignIn extends Component {
             />
           </div>
         </div>
-        <button onClick={this.onClick}>Login</button>
+        <button onClick={this.onSubmit}>Login</button>
       </div>
     );
   }

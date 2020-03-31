@@ -10,6 +10,10 @@ class SignIn extends Component {
     changeFieldAction: PropTypes.func.isRequired,
   };
 
+  onSubmit = () => {
+    this.props.signUpAction(this.props.dataForm);
+  }
+
   render() {
     return (
       <div>
@@ -31,8 +35,8 @@ class SignIn extends Component {
           </div>
           <div>
             <Input
-              id="firstname"
-              value={this.props.dataForm.firstname}
+              id="firstName"
+              value={this.props.dataForm.firstName}
               onChange={this.props.changeFieldAction}
             />
           </div>
@@ -43,8 +47,8 @@ class SignIn extends Component {
           </div>
           <div>
             <Input
-              id="lastname"
-              value={this.props.dataForm.lastname}
+              id="lastName"
+              value={this.props.dataForm.lastName}
               onChange={this.props.changeFieldAction}
             />
           </div>
@@ -72,6 +76,9 @@ class SignIn extends Component {
               onChange={this.props.changeFieldAction}
             />
           </div>
+        </div>
+        <div>
+          <button onClick={this.onSubmit}>Зарегистрироваться</button>
         </div>
       </div>
     );
