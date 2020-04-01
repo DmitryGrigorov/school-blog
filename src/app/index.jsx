@@ -7,12 +7,13 @@ import Main from 'src/pages/main'
 import About from 'src/pages/about'
 import SignIn from 'src/pages/sign-in'
 import SignUp from 'src/pages/sign-up'
+import Post from 'src/pages/post'
 import NewPost from 'src/pages/new-post'
 
 
 
 class App extends React.Component{
- componentDidMount(){this.props.authentication()}
+ componentDidMount(){ this.props.authentication() }
 
  render(){
   return <>
@@ -24,6 +25,7 @@ class App extends React.Component{
    <Route path='/about' component={About} />
    <Route path='/sign-in' component={SignIn} />
    <Route path='/sign-up' component={SignUp} />
+   <Route exact path='/post/:id' component={Post} />
    <Route path='/new-post' component={NewPost} />
   </Switch>
  </>

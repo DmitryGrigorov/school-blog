@@ -1,8 +1,9 @@
 import * as user from './user'
-//import * as user from './post'
+import * as posts from './posts'
 
 
 
 export default {
- user
+ user,
+ posts
 }

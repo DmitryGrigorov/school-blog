@@ -1,11 +1,13 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {createLogger} from 'redux-logger'
 import {connectRouter, routerMiddleware} from 'connected-react-router'
-import thunk from 'redux-thunk'
 import {history} from 'src/history'
+import thunk from 'redux-thunk'
 import applicationReducer from 'src/app/reducer'
 import signInReducer from 'src/pages/sign-in/reducer'
 import signUpReducer from 'src/pages/sign-up/reducer'
+import mainReducer from 'src/pages/main/reducer'
+import postReducer from 'src/pages/post/reducer'
 import newPostReducer from 'src/pages/new-post/reducer'
 
 
@@ -19,6 +21,8 @@ const createRootReducer = (history) => combineReducers({
   applicationReducer: applicationReducer,
   signIn: signInReducer,
   signUp: signUpReducer,
+  main: mainReducer,
+  post: postReducer,
   newPost: newPostReducer
 })
 
