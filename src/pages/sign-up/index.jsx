@@ -30,9 +30,9 @@ const SignUp = enhance(props => {
   return (
     <div className={style.signUpWrapper}>
       <div className={style.row}>
-        <div>Login</div>
         <Input
           id="login"
+          placeholder="Login"
           value={props.dataForm.login}
           onChange={props.changeFieldAction}
           onBlur={checkLogin}
@@ -40,43 +40,45 @@ const SignUp = enhance(props => {
         />
       </div>
       <div className={style.row}>
-        <div>Email</div>
         <Input
           id="email"
+          placeholder="Email"
           value={props.dataForm.email}
           onChange={props.changeFieldAction}
           error={errors.email}
         />
       </div>
       <div className={style.row}>
-        <div>First name</div>
         <Input
           id="firstName"
+          placeholder="First name"
           value={props.dataForm.firstName}
           onChange={props.changeFieldAction}
           error={errors.firstName}
         />
       </div>
       <div className={style.row}>
-        <div>Last name</div>
         <Input
           id="lastName"
+          placeholder="Last name"
           value={props.dataForm.lastName}
           onChange={props.changeFieldAction}
           error={errors.lastName}
         />
       </div>
       <div className={style.row}>
-        <div>Password</div>
         <Input
           id="password"
+          placeholder="Password"
           value={props.dataForm.password}
           onChange={props.changeFieldAction}
           error={errors.password}
         />
       </div>
       <div className={style.row}>
-        <button onClick={onSubmit}>Register</button>
+        <button className={style.submit} onClick={onSubmit}>
+          Register
+        </button>
       </div>
     </div>
   );

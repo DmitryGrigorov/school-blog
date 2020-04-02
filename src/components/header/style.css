@@ -12,7 +12,7 @@
 
 .wrapperUl li {
   display: inline-flex;
-  border-right: 1px solid #BBB;
+  border-right: 1px solid #bbb;
 }
 
 .link {
@@ -21,6 +21,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .link:hover {

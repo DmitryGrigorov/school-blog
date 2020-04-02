@@ -11,3 +11,51 @@ export const getPostsAction = () => {
     }
   };
 };
+
+export const getScrollPostsAction = NPosts => {
+  return async function(dispatch) {
+    try {
+      dispatch({ type: "MAIN_PAGE_SCROLL_GET_POSTS_REQUEST" });
+      const response = await API.posts.getList({
+        offset: NPosts,
+        offsetStep: 2
+      });
+      dispatch({
+        type: "MAIN_PAGE_SCROLL_GET_POSTS_SUCCESS",
+        payload: response.data
+      });
+    } catch (error) {
+      dispatch({ type: "MAIN_PAGE_SCROLL_GET_POSTS_FAIL" });
+    }
+  };
+};
+
+export const increaseLikeCountAction = id => {
+  return async function(dispatch) {
+    try {
+      dispatch({ type: "MAIN_PAGE_INCREASE_LIKE_REQUEST" });
+      const response = await API.posts.likePost(id);
+      dispatch({
+        type: "MAIN_PAGE_INCREASE_LIKE_SUCCESS",
+        payload: response.data
+      });
+    } catch (error) {
+      dispatch({ type: "MAIN_PAGE_INCREASE_LIKE_FAIL" });
+    }
+  };
+};
+
+export const increaseDislikeCountAction = id => {
+  return async function(dispatch) {
+    try {
+      dispatch({ type: "MAIN_PAGE_INCREASE_DISLIKE_REQUEST" });
+      const response = await API.posts.dislikePost(id);
+      dispatch({
+        type: "MAIN_PAGE_INCREASE_DISLIKE_SUCCESS",
+        payload: response.data
+      });
+    } catch (error) {
+      dispatch({ type: "MAIN_PAGE_INCREASE_DISLIKE_FAIL" });
+    }
+  };
+};
