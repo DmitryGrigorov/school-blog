@@ -9,6 +9,7 @@ import signUpReducer from "src/pages/sign-up/reducer";
 import newPostReducer from "src/pages/new-post/reducer";
 import postReducer from "src/pages/post/reducer";
 import mainReducer from "src/pages/main/reducer";
+import userPageReducer from "src/pages/user-page/reducer";
 import { history } from "src/history";
 
 const logger = createLogger({
@@ -25,7 +26,8 @@ const createRootReducer = history =>
     signUp: signUpReducer,
     newPost: newPostReducer,
     post: postReducer,
-    main: mainReducer
+    main: mainReducer,
+    me: userPageReducer
   });
 
 const store = createStore(

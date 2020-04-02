@@ -40,7 +40,9 @@ export default class Header extends Component {
           </ul>
         ) : (
           <ul className={style.wrapperUl}>
-            <li className={style.link}>Привет: {this.props.user.login}</li>
+            <Link className={style.link} to={`/me/${this.props.user.id}`}>
+              Привет: {this.props.user.login}
+            </Link>
             <li className={style.link} onClick={this.props.signOut}>
               Выход
             </li>

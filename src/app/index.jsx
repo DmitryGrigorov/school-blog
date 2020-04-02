@@ -9,6 +9,7 @@ import About from "src/pages/about";
 import NewPost from "src/pages/new-post";
 import MainPage from "src/pages/main";
 import Post from "src/pages/post";
+import UserPage from "src/pages/user-page";
 import * as Actions from "./actions";
 import "./style.css";
 
@@ -30,6 +31,9 @@ class App extends Component {
           <Route path="/about" exact={true} component={About} />
           <Route path="/post/:id" exact={true} component={Post} />
           <Route path="/" exact={true} component={MainPage} />
+          {this.props.user && (
+            <Route path="/me/:id" exact={true} component={UserPage} />
+          )}
         </Switch>
       </>
     );
