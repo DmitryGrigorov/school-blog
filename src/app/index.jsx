@@ -24,7 +24,7 @@ class App extends Component {
         <Switch>
           <Route path='/sign-in' exact={true} component={SignIn} />
           <Route path='/sign-up' exact={true} component={SignUp} />
-          <Route path='/new-post' exact={true} component={NewPost} />
+          {this.props.user && <Route path='/new-post' exact={true} component={NewPost} />}
           <Route path='/about' exact={true} component={About} />
           <Route path='/post/:id' exact={true} component={Post} />
           <Route path='/' exact={true} component={MainPage} />

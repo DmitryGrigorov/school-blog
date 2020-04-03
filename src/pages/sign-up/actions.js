@@ -14,7 +14,20 @@ export const signUpAction = (data) => {
       dispatch({ type: 'SIGN_UP_SUCCESS', payload: response.data });
       dispatch(push('/'));
     } catch (error) {
-        dispatch({ type: 'SIGN_UP_FAIL' });
+        dispatch({ type: 'SIGN_UP_FAIL', payload: error.response.data });
     }
   };
 };
+
+export function checkLoginAction(login) {
+  return async function(dispatch) {
+    try {
+      const response = await API.user.checkLogin(login);
+      dispatch({ type: 'SIGN_UP_CHECK_LOGIN_SUCCESS', payload: response.data});
+    } catch (error) {
+      if (error.response) {
+        dispatch({ type: 'SIGN_UP_FAIL', payload: error.response.data });
+      }
+    }
+  }
+}

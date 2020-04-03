@@ -6,8 +6,14 @@ import style from './style.css';
 
 class MainPage extends Component {
   componentDidMount() {
-    this.props.getPostsAction();
+    this.props.getInitPostsAction();
+    // window.addEventListener('scroll', this.onScroll);
   }
+
+  // onScroll = (e) => {
+  //   console.log(e);
+
+  // };
 
   render() {
     const { posts } = this.props;
