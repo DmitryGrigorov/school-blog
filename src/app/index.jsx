@@ -26,7 +26,7 @@ class App extends React.Component{
    <Route path='/sign-in' component={SignIn} />
    <Route path='/sign-up' component={SignUp} />
    <Route exact path='/post/:id' component={Post} />
-   <Route path='/new-post' component={NewPost} />
+   {this.props.user && <Route path='/new-post' component={NewPost} />}
   </Switch>
  </>
 </article>

@@ -1,0 +1,3 @@
+#page{ display: flex }
+
+#page > *:not(:last-child){ margin-right: 2px }

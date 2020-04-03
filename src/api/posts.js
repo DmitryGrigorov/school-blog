@@ -17,6 +17,14 @@ const getPost = (id) => {
  })
 }
 
+const setPost = (data) => {
+ return axiosFetch({
+  url: 'posts',
+  method: 'POST',
+  data
+ })
+}
+
 const deletePost = (id) => {
  return axiosFetch({
   url: 'posts/' + id,
@@ -26,4 +34,4 @@ const deletePost = (id) => {
 
 
 
-export {getPosts, getPost, deletePost}
+export {getPosts, getPost, setPost, deletePost}

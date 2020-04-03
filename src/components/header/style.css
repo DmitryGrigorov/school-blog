@@ -19,3 +19,12 @@ Main > Header Menu > *:hover{
   background-color: rgba(0, 0, 0, 0.96);
   color: white
 }
+
+
+Main > Header Div{ display: flex; align-items: center }
+Main > Header Span{
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 6px;
+  text-decoration: underline
+}

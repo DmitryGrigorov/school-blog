@@ -11,7 +11,7 @@ export default class Header extends React.Component{
  <menu>
   <Link to='/'>Главная</Link>
   <Link to='/about'>О сайте</Link>
-  <Link to='/new-post'>Новая запись</Link>
+  {this.props.user && <Link to='/new-post'>Новая запись</Link>}
  </menu>
 
  {!this.props.user
@@ -21,10 +21,7 @@ export default class Header extends React.Component{
    <Link to='/sign-in'>Авторизация</Link>
   </menu>
   :
-  <div>
-   <p>Привет, {this.props.user.login}!</p>
-   <button onClick={this.props.signOut}>Выйти</button>
-  </div>
+  <div>{this.props.user.login}, <span onClick={this.props.signOut}>уходи</span>!</div>
  }
   </header>
   )

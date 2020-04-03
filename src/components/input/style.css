@@ -1,0 +1,11 @@
+.labelOfInput.error{ color: tomato }
+.labelOfInput.valid{ color: limegreen }
+
+.labelOfInput.error + Input{
+  color: tomato;
+  border-color: tomato
+}
+.labelOfInput.valid + Input{
+    color: limegreen;
+    border-color: limegreen
+}

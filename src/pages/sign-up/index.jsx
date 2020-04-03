@@ -3,52 +3,59 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import Input from 'src/components/input'
 import * as Actions from './actions'
+import Button from '../../components/button'
+import s from './style.css'
+
+
 
 class SignUp extends React.Component{
  static propTypes = {
   dataForm: PropTypes.object.isRequired,
   changeFieldAction: PropTypes.func.isRequired,
-  signUpAction: PropTypes.func.isRequired
+  signUpAction: PropTypes.func.isRequired,
+  checkLoginAction: PropTypes.func.isRequired
  }
 
  onRegistration = () => this.props.signUpAction(this.props.dataForm)
 
+ checkLogin = () => this.props.checkLoginAction(this.props.dataForm.login)
+
  render(){
-  return <>
+  const {errors, dataForm, changeFieldAction} = this.props
+
+  return <section id={s.page}>
 <div>
- <label>First name</label>
- <Input id='firstName' value={this.props.dataForm.firstName} onChange={this.props.changeFieldAction} />
+ <Input id='firstName' placeholder='Имя' value={dataForm.firstName} notice={errors.firstName && errors.firstName} onChange={changeFieldAction} />
 </div>
 
 <div>
- <label>Last name</label>
- <Input id='lastName' value={this.props.dataForm.lastName} onChange={this.props.changeFieldAction} />
+ <Input id='lastName' placeholder='Фамилия' value={dataForm.lastName} notice={errors.lastName && errors.lastName} onChange={changeFieldAction} />
 </div>
 
 <div>
- <label>E-Mail</label>
- <Input id='eMail' value={this.props.dataForm.eMail} onChange={this.props.changeFieldAction} />
+ <Input id='eMail' placeholder='e-mail' value={dataForm.eMail} notice={errors.email && errors.email} onChange={changeFieldAction} />
 </div>
 
 <div>
- <label>login</label>
- <Input id='login' value={this.props.dataForm.login} onChange={this.props.changeFieldAction} />
+ <Input id='login' placeholder='login' value={dataForm.login} notice={errors.login && errors.login} onChange={changeFieldAction} onBlur={this.checkLogin} />
 </div>
 
 <div>
- <label>password</label>
- <Input id='password' value={this.props.dataForm.password} onChange={this.props.changeFieldAction} />
+ <Input id='password' placeholder='password' value={dataForm.password} notice={errors.password && errors.password} onChange={changeFieldAction} />
 </div>
 
 <div>
- <button onClick={this.onRegistration}>Зарегестрироваться</button>
+ <Button type='submit' onClick={this.onRegistration}>Прописаться</Button>
 </div>
-  </>
+  </section>
  }
 }
 
 
 
 
-const mapStateToProps = (state) => ({dataForm: state.signUp.dataForm})
+const mapStateToProps = (state) => ({
+ dataForm: state.signUp.dataForm,
+ errors: state.signUp.errors
+})
 export default connect(mapStateToProps, Actions)(SignUp)

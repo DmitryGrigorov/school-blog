@@ -1,7 +1,7 @@
 {
   "name": "fe.project",
   "version": "1.0.0",
-  "description": "1. Создать в `src/pages/sign-up` три файла: `index.jsx`, `actions.js`, `reducer.js`\r 2. Подключить `reducer.js` в стор `src/store.js`\r 3. Подключить компонент `src/pages/sign-up/index.jsx` через `connect()()`\r 4. Подключить страницу `<SignUp />` заместо странины `<SignIn />` в компоненте `<App />`\r 5. На странице должно быть 4 поля ввода: `login, email, firstName, password`\r 6. Данные введенные в поля нужно хранить в сторе.\r 7. Обратите внимание что `action.type` не должен совпадать с другими экшенами (иначе ваш экшен будет обрабатываться несколькими редьюсерами и как результат - менять стейт несколько раз)",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress",

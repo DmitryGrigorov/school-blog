@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import Input from 'src/components/input'
 import * as Actions from './actions'
+import Button from '../../components/button'
+import s from './style.css'
 
 
 
@@ -19,19 +21,17 @@ class SignIn extends React.Component{
  }
 
  render(){
-  return <>
- <div>
-  <label>login</label>
-  <Input id='login' value={this.props.dataForm.login} onChange={this.props.changeFieldAction} />
- </div>
- <div>
-  <label>password</label>
-  <Input id='password' value={this.props.dataForm.password} onChange={this.props.changeFieldAction} />
- </div>
- <div>
-  <button onClick={this.onAuthorisation}>Авторизоваться</button>
- </div>
-  </>
+  return <section id={s.page}>
+<div>
+ <Input id='login' placeholder='login' value={this.props.dataForm.login} onChange={this.props.changeFieldAction} />
+</div>
+<div>
+ <Input id='password' placeholder='password' value={this.props.dataForm.password} onChange={this.props.changeFieldAction} />
+</div>
+<div>
+ <Button type='submit' placeholder='' onClick={this.onAuthorisation}>Войти</Button>
+</div>
+  </section>
  }
 }
 

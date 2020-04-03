@@ -20,18 +20,26 @@ const signUp = (data) => {
 
 const authentication = (data) => {
  return axiosFetch({
-  url: 'users/auth/',
+  url: 'users/auth',
   method: 'GET'
  })
 }
 
 const signOut = (data) => {
  return axiosFetch({
-  url: 'users/signout/',
+  url: 'users/signout',
   method: 'GET'
+ })
+}
+
+const checkLogin = (login) => {
+ return axiosFetch({
+  url: 'users/check-exists',
+  method: 'POST',
+  data: {login}
  })
 }
 
 
 
-export {signIn, signUp, authentication, signOut}
+export {signIn, signUp, authentication, signOut, checkLogin}

@@ -16,10 +16,23 @@ const signUpAction = (dataForm) => {
    const response = await API.user.signUp(dataForm)
    dispatch({type: 'SIGNUP_SUCCESS', payload: response.data})
    dispatch(push('/'))
-  } catch(error){ dispatch({type: 'SIGNUP_FAIL'}) }
+  } catch(error){
+   if(error.response){
+    dispatch({type: 'SIGNUP_FAIL', payload: error.response.data})
+   }
+  }
+ }
+}
+
+const checkLoginAction = (login) => async (dispatch) => {
+ try{
+  const response = await API.user.checkLogin(login)
+  dispatch({type: 'SIGNUP_CHECK-LOGIN_SUCCESS', payload: response.data})
+ } catch(error){
+  dispatch({type: 'SIGNUP_CHECK-LOGIN_FAIL'})
  }
 }
 
 
 
-export {changeFieldAction, signUpAction}
+export {changeFieldAction, signUpAction, checkLoginAction}

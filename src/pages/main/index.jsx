@@ -9,7 +9,14 @@ import s from './style.css'
 class Main extends React.Component{
  componentDidMount(){
   this.props.getPostsAction()
+  //window.addEventListener('scroll', this.onScroll)
  }
+
+ /*
+ onScroll = (e) => {
+  console.log(e)
+ }
+ */
 
  render(){
   const {posts} = this.props
