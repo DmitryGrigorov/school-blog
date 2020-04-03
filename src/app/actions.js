@@ -1,4 +1,5 @@
 import API from "src/api";
+import { push } from "connected-react-router";
 
 export const increaseAction = (payload = 1) => {
   return {
@@ -27,6 +28,7 @@ export const signOut = () => {
     try {
       const response = await API.user.signOut();
       dispatch({ type: "APPLICATION-SIGN-OUT", payload: response.data });
+      dispatch(push("/"));
     } catch (error) {}
   };
 };

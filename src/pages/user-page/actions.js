@@ -14,3 +14,12 @@ export const fetchUserData = id => async dispatch => {
     dispatch({ type: "FETCH_USER_DATA_FAILURE" });
   }
 };
+
+export const changeUserPassword = data => async dispatch => {
+  try {
+    await API.user.changePassword(data);
+    dispatch({ type: "CHANGE_PASSWORD_SUCCESS" });
+  } catch (err) {
+    dispatch({ type: "CHANGE_PASSWORD_FAILURE" });
+  }
+};

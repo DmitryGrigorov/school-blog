@@ -46,16 +46,4 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return ({
-//     dispatch: dispatch,
-//     increaseAction: (payload) => {
-//       dispatch(Actions.increaseAction(payload));
-//     },
-//     decreaseAction: (payload) => {
-//       dispatch(Actions.decreaseAction(payload));
-//     }
-//   });
-// };
-
 export default connect(mapStateToProps, Actions)(App);
