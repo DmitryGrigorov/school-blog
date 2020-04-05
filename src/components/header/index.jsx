@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import style from './style.css';
 
 export default class Header extends Component {
+  
   render() {
     return (
       <div className={style.wrapper}>
@@ -10,6 +11,7 @@ export default class Header extends Component {
           <li><Link className={style.link} to="/">Главная</Link></li>
           <li><Link className={style.link} to="/about">О сайте</Link></li>
           {this.props.user && <li><Link className={style.link} to="/new-post">Новый пост</Link></li>}
+          {this.props.user && <li><Link className={style.link} to="/user" >Мой профиль</Link></li>}
         </ul>
         
         {!this.props.user ? 
@@ -19,9 +21,8 @@ export default class Header extends Component {
         </ul>
         : 
         <ul className={style.wrapperUl}>
-          <li>Привет:</li>
-          <li>{this.props.user.login}</li>
-          <li onClick={this.props.signOut}>Выход</li>
+          <li className={style.link}>Привет, {this.props.user.login}!</li>
+          <li className={style.link} onClick={this.props.signOut}>Выход</li>
         </ul>
         }
         

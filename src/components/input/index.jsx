@@ -16,12 +16,13 @@ export default class Input extends Component {
   }
 
   render() {
-    const { value, error } = this.props;
+    const { value, error, placeholder } = this.props;
 
     return (
       <div>
         <input
           type="text"
+          placeholder={placeholder}
           value={value}
           onChange={this.onChange}
           onBlur={this.onBlur}

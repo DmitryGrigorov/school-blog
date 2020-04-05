@@ -5,7 +5,7 @@ import Input from 'src/components/input';
 import * as Actions from './actions';
 import style from './style.css';
 
-class SignIn extends Component {
+class SignUp extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
@@ -26,11 +26,9 @@ class SignIn extends Component {
       <div className={style.signUpWrapper}>
         <div className={style.row}>
           <div>
-            login
-          </div>
-          <div>
             <Input
               id="login"
+              placeholder="login"
               value={this.props.dataForm.login}
               onChange={this.props.changeFieldAction}
               onBlur={this.checkLogin}
@@ -40,11 +38,9 @@ class SignIn extends Component {
         </div>
         <div className={style.row}>
           <div>
-            first name
-          </div>
-          <div>
             <Input
               id="firstName"
+              placeholder="first name"
               value={this.props.dataForm.firstName}
               onChange={this.props.changeFieldAction}
               error={errors.firstName}
@@ -53,11 +49,9 @@ class SignIn extends Component {
         </div>
         <div className={style.row}>
           <div>
-            last name
-          </div>
-          <div>
             <Input
               id="lastName"
+              placeholder="last name"
               value={this.props.dataForm.lastName}
               onChange={this.props.changeFieldAction}
               error={errors.lastName}
@@ -66,11 +60,9 @@ class SignIn extends Component {
         </div>
         <div className={style.row}>
           <div>
-            email
-          </div>
-          <div>
             <Input
               id="email"
+              placeholder="email"
               value={this.props.dataForm.email}
               onChange={this.props.changeFieldAction}
               error={errors.email}
@@ -79,11 +71,9 @@ class SignIn extends Component {
         </div>
         <div className={style.row}>
           <div>
-            password
-          </div>
-          <div>
             <Input
               id="password"
+              placeholder="password"
               value={this.props.dataForm.password}
               onChange={this.props.changeFieldAction}
               error={errors.password}
@@ -91,7 +81,7 @@ class SignIn extends Component {
           </div>
         </div>
         <div>
-          <button onClick={this.onSubmit}>Зарегистрироваться</button>
+          <button className={style.submit} onClick={this.onSubmit}>Зарегистрироваться</button>
         </div>
       </div>
     );
@@ -103,4 +93,4 @@ const mapStateToProps = (state) => ({
   errors: state.signUp.errors
 });
 
-export default connect(mapStateToProps, Actions)(SignIn);
+export default connect(mapStateToProps, Actions)(SignUp);

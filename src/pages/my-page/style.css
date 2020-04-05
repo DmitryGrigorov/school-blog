@@ -1,0 +1,37 @@
+.myPageWrapper {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.myPageImg {
+  width: 100px;
+  height: 100px;
+  background-color: #3885c7;
+}
+
+.myPageLeft {
+  margin-right: 30px;
+}
+
+.myPageList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.myPageItem {
+  font-weight: bold;
+}
+
+.myPageButton {
+  padding: 10px 20px;
+  margin-top: 20px;
+  line-height: 1.5;
+  background-color: #054ef8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
