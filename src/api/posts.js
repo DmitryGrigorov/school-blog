@@ -32,6 +32,20 @@ const deletePost = (id) => {
  })
 }
 
+const increaseLikeOfPost = (id) => {
+ return axiosFetch({
+  url: 'posts/like/' + id,
+  method: 'PUT'
+ })
+}
+
+const increaseDislikeOfPost = (id) => {
+ return axiosFetch({
+  url: 'posts/dislike/' + id,
+  method: 'PUT'
+ })
+}
 
 
-export {getPosts, getPost, setPost, deletePost}
+
+export {getPosts, getPost, setPost, deletePost, increaseLikeOfPost, increaseDislikeOfPost}
