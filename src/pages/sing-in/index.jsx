@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Input from 'src/components/input';
+import Input from 'src/components/input/input.jsx';
 import * as Actions from './actions';
 
 class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired
+    //label: PropTypes.string.isRequired
   };
 
   render() {
@@ -44,7 +44,7 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  dataForm: state.signIn.dataForm
+  dataForm: state.signInReducer.dataForm
 });
 
 export default connect(mapStateToProps, Actions)(SignIn);

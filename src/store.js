@@ -1,11 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import applicationReducer from 'src/app/reducer';
-import signInReducer from 'src/pages/sing-in/reduce';
+import appReducer from 'src/app/reducer.js';
+import signInReducer from 'src/pages/sing-in/reduce.js';
 
 const rootReducer = combineReducers({
-  applicationReducer: applicationReducer,
-  signIn: signInReducer
+  appReducer,
+  signInReducer
 });
 
 const logger = createLogger({
