@@ -1,17 +1,42 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Header from 'src/components/header';
-import SignIn from 'src/pages/sing-in';
-import * as Actions from './actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Switch, Route } from 'react-router-dom'
+import Header from 'src/components/header'
+import SignIn from 'src/pages/sign-in'
+import NewPost from 'src/pages/new-post'
+import MainPage from 'src/pages/main'
+//import FooterCounter from 'src/component/footer-counter'
+import SignUp from 'src/pages/sign-up'
+import * as Actions from './actions'
 import './style.css';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.auth()
+  }
+
   render() {
     return (
-      <div>
-        <Header />
-        <SignIn />
-        <div className="footer">
+      <>
+        <Header user={this.props.user} signOut={this.props.signOut}/>
+        <Switch>
+          <Route path='/sign-in'>
+            <SignIn />
+          </Route>
+          <Route path='/sign-up'>
+            <SignUp />
+          </Route>
+          <Route path='/about'>
+            <h1>Information about project</h1>
+          </Route>
+          <Route path='/new-post' component={NewPost} />
+          <Route path='/'>
+            <MainPage />
+          </Route>
+        </Switch>
+
+        {/* <div className="footer">
           count = {this.props.counter}
           <button
             onClick={() => this.props.increaseAction(1)}
@@ -28,15 +53,16 @@ class App extends Component {
           >
             decrease
           </button>
-        </div>
-      </div>
+        </div> */}
+      </>
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return ({
-    counter: state.appReducer.counter
+    counter: state.appReducer.counter,
+    user: state.appReducer.user
   });
 };
 

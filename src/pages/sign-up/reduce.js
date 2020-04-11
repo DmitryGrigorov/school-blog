@@ -3,21 +3,21 @@ import cloneDeep from 'lodash/cloneDeep';
 const initState = {
   dataForm: {
     login: '',
+    firstName: '',
+    lastName: '',
+    email: '',
     password: ''
   }
 };
 
 function merge(state, someObject) {
   const clonnedState = cloneDeep(state);
-  // console.log(state)
-  // console.log(someObject)
-  // console.log(clonnedState)
   return Object.assign(clonnedState, someObject);
 }
 
-export default function signInReducer(state = initState, action) {
+export default function signUpReducer(state = initState, action) {
   switch (action.type) {
-    case 'SIGN-IN_CHANGE_DATA_FORM':
+    case 'SIGN-UP_CHANGE_DATA_FORM':
       return merge(state, {
         dataForm: {
           ...state.dataForm,
