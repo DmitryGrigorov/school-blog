@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --progress",
-    "build": "NODE_ENV=production webpack"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +32,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
