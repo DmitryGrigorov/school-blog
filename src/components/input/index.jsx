@@ -9,16 +9,26 @@ export default class Input extends Component {
     onChange({ fieldId: id, value });
   };
 
-  render() {
-    const { value } = this.props;
+  onBlur = () => {
+    const { onBlur } = this.props;
+    onBlur && onBlur();
+  }
 
+  render() {
+    const { value, error } = this.props;
     return (
-      <input
-        type='text'
-        value={value}
-        onChange={this.onChange}
-        className={style.inputComponent}
-      />
+      <div>
+        <input
+          type='text'
+          value={value}
+          onChange={this.onChange}
+          onBlur={this.onBlur}
+          className={`${style.inputComponent} ${error ? style.inputError : ""}`}
+        />
+      <div className={style.error}>{error}</div>
+
+      </div>
+
     );
   }
 }

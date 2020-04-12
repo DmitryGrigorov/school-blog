@@ -3,14 +3,23 @@ import { connect } from 'react-redux';
 import Input from 'src/components/input'
 import Textarea from 'src/components/textarea'
 import Button from 'src/components/button'
+import * as Actions from "./actions"
 import style from './style.css';
 
 class NewPost extends Component {
-    onChangeData = () => {
+    onChangeData = (data) => {
+        const fieldId = data.fieldId;
+        const value = data.value;
 
+        this.props.changeDataAction(fieldId, value);
     }
+    onSubmit = () => {
+        this.props.createPostAction(this.props.data)
+    }
+    
     render() {
         const { data } = this.props
+        console.log(data)
         return (
             <div className={style.postFormWrapper}>
                 <div className={style.row}>
@@ -22,15 +31,15 @@ class NewPost extends Component {
                     />
                 </div>
                 <div className={style.row}>
-                    <div>Заголовок</div>
+                    <div>Контент</div>
                     <Textarea  
                         id="content"
-                        value={data.title}
+                        value={data.content}
                         onChange={this.onChangeData}
                     />
                 </div>
                 <div>
-                    <Button>Закрыть</Button>
+                    <Button id="submit" onClick={this.onSubmit}>Создать</Button>
                 </div>
             </div>
         )
@@ -43,4 +52,4 @@ function mapStateToProps (state) {
     };
 }
 
-export default connect(mapStateToProps)(NewPost)
+export default connect(mapStateToProps, Actions)(NewPost)

@@ -7,6 +7,8 @@ import NewPost from 'src/pages/new-post'
 import MainPage from 'src/pages/main'
 //import FooterCounter from 'src/component/footer-counter'
 import SignUp from 'src/pages/sign-up'
+import PostPage from 'src/pages/post'
+
 import * as Actions from './actions'
 import './style.css';
 
@@ -21,39 +23,13 @@ class App extends Component {
       <>
         <Header user={this.props.user} signOut={this.props.signOut}/>
         <Switch>
-          <Route path='/sign-in'>
-            <SignIn />
-          </Route>
-          <Route path='/sign-up'>
-            <SignUp />
-          </Route>
-          <Route path='/about'>
-            <h1>Information about project</h1>
-          </Route>
-          <Route path='/new-post' component={NewPost} />
-          <Route path='/'>
-            <MainPage />
-          </Route>
+          <Route path='/sign-in' exact={true} component={SignIn} />
+          <Route path='/sign-up' exact={true} component={SignUp} />
+          <Route path='/about' exact={true}> <h1>Information about project</h1> </Route>
+          <Route path='/post/:id' exact={true} component={PostPage} />
+          { this.props.user && <Route path='/new-post' exact={true} component={NewPost} /> }
+          <Route path='/' exact={true} component={MainPage} />
         </Switch>
-
-        {/* <div className="footer">
-          count = {this.props.counter}
-          <button
-            onClick={() => this.props.increaseAction(1)}
-          >
-            increase 1
-          </button>
-          <button
-            onClick={() => this.props.increaseAction(55)}
-          >
-            increase 55
-          </button>
-          <button
-            onClick={() => this.props.decreaseAction(1)}
-          >
-            decrease
-          </button>
-        </div> */}
       </>
     );
   }
@@ -61,7 +37,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    counter: state.appReducer.counter,
     user: state.appReducer.user
   });
 };

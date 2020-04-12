@@ -5,9 +5,10 @@ const initState = {
 
 export default function postReducer (state = initState, action) {
     switch (action.type) {
-        case 'POST_PAGE_GET_DATA_SUCCES':
+        case 'POST_PAGE_GET_DATA_SUCCESS':
             return {
-                ...state
+                ...state,
+                data: action.payload
             }
         default:
             return state

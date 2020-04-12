@@ -5,7 +5,6 @@
    padding: 40px 20px;
 }
 .row {
-    border: 1px solid darkcyan;
     margin-bottom: 10px; 
 }
 .row:last-child {

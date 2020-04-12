@@ -10,7 +10,10 @@ import style from './style.css';
 class PostPage extends Component {
     
     componentDidMount() {
-        this.props.getPostDataAction()
+        console.log(this.props)
+        const { match } = this.props
+        console.log(match.params.id)
+        this.props.getPostDataAction(match.params.id)
     }
 
     render() {
@@ -18,8 +21,13 @@ class PostPage extends Component {
         return (
             <div>
                 {data 
-                    ? <div>post</div>
-                    : <div>loading...</div>
+                    ? 
+                        <div className={style.postWrapper}>
+                            <div className={style.postTitle}>{data.title}</div>
+                            <div className={style.postContent}>{data.content}</div>
+                        </div>
+                    : 
+                        <div>loading...</div>
                 }
             </div>
         )
@@ -31,10 +39,10 @@ class PostPage extends Component {
 //         posts: state.mainPageReducer.posts
 //     };
 // }
-function mapDispatchToProps(state) { // все что вызывает данная функция попадает в props
+function mapStateToProps(state) { // все что вызывает данная функция попадает в props
     return {
        data: state.postReducer.data
     };
 }
  
-export default connect(mapDispatchToProps, Actions)(PostPage)
+export default connect(mapStateToProps, Actions)(PostPage)

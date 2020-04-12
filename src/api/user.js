@@ -18,7 +18,7 @@ export const signUp = (data) => {
 
 export const auth = () => {
     return axiosFetch({
-        url: "users/auth/",
+        url: "users/auth",
         method: "GET",
     })
 }
@@ -27,5 +27,15 @@ export function signOut() {
     return axiosFetch({
         url: "users/signout/",
         method: "GET",
+    })
+}
+
+export function checkLogin(login) {
+    return axiosFetch({
+        url: "users/check-exists/",
+        method: "POST",
+        data: {
+            login: login
+        }
     })
 }
