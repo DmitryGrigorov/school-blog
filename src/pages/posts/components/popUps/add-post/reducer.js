@@ -13,9 +13,9 @@ const merge = (state, someObject) => {
  return Object.assign(clonnedState, someObject);
 }
 
-const newPostReducer = (state = initState, action) => {
+const addPostReducer = (state = initState, action) => {
  switch (action.type){
-  case 'NEWPOST_CHANGE-DATA-FORM':
+  case 'ADD-POST_CHANGE-FORM':
    return merge(state, {
     dataForm:{
      ...state.dataForm,
@@ -30,4 +30,4 @@ const newPostReducer = (state = initState, action) => {
 
 
 
-export default  newPostReducer
+export default addPostReducer

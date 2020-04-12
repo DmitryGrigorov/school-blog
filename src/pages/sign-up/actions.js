@@ -11,11 +11,11 @@ const changeFieldAction = ({ fieldId, value }) => ({
 const signUpAction = (dataForm) => {
  return async (dispatch) => {
   try{
-   //dispatch({type: 'SIGNUP_REQUEST'})
+   dispatch({type: 'SIGNUP_REQUEST'})
 
    const response = await API.user.signUp(dataForm)
    dispatch({type: 'SIGNUP_SUCCESS', payload: response.data})
-   dispatch(push('/'))
+   dispatch(push('/posts'))
   } catch(error){
    if(error.response){
     dispatch({type: 'SIGNUP_FAIL', payload: error.response.data})

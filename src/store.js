@@ -6,9 +6,12 @@ import thunk from 'redux-thunk'
 import applicationReducer from 'src/app/reducer'
 import signInReducer from 'src/pages/sign-in/reducer'
 import signUpReducer from 'src/pages/sign-up/reducer'
-import mainReducer from 'src/pages/main/reducer'
-import postReducer from 'src/pages/post/reducer'
-import newPostReducer from 'src/pages/new-post/reducer'
+import postsReducer from 'src/pages/posts/reducer'
+import readPostReducer from 'src/pages/posts/components/popUps/read-post/reducer'
+import addPostReducer from 'src/pages/posts/components/popUps/add-post/reducer'
+import userReducer from 'src/pages/users/user/reducer'
+import changePasswordOfUserReducer from 'src/pages/users/user/components/popUps/change-password/reducer'
+import usersReducer from './pages/users/reducer'
 
 
 
@@ -18,24 +21,16 @@ const logger = createLogger({ collapsed: true })
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
-  applicationReducer: applicationReducer,
+  application: applicationReducer,
   signIn: signInReducer,
   signUp: signUpReducer,
-  main: mainReducer,
-  post: postReducer,
-  newPost: newPostReducer
+  posts: postsReducer,
+  readPost: readPostReducer,
+  addPost: addPostReducer,
+  user: userReducer,
+  users: usersReducer,
+  changePasswordOfUser: changePasswordOfUserReducer
 })
-
-/* THUNK
-function myMiddleware(store){
- return (next) => {
-  return (action) => {
-   if(typeof action === 'function'){ action(store.dispatch) }
-   else{ next(action) }
-  }
- }
-}
-*/
 
 const store = createStore(createRootReducer(history), applyMiddleware(routerMiddleware_, logger, thunk))
 

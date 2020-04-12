@@ -9,9 +9,8 @@ export default class Header extends React.Component{
   return(
 <header>
  <menu>
-  <Link to='/'>Главная</Link>
-  <Link to='/about'>О сайте</Link>
-  {this.props.user && <Link to='/new-post'>Новая запись</Link>}
+  <Link to='/posts'>Записи</Link>
+  <Link to='/users'>Пользователи</Link>
  </menu>
 
  {!this.props.user
@@ -21,7 +20,7 @@ export default class Header extends React.Component{
    <Link to='/sign-in'>Авторизация</Link>
   </menu>
   :
-  <div>{this.props.user.login}, <span onClick={this.props.signOut}>уходи</span>!</div>
+  <div>Я узнал тебя, <Link to={`/users/${this.props.user.id}`}>{this.props.user.login}</Link>. <span onClick={this.props.signOut}>Уходи</span>!</div>
  }
   </header>
   )

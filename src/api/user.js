@@ -18,16 +18,16 @@ const signUp = (data) => {
  })
 }
 
-const authentication = (data) => {
+const signOut = (data) => {
  return axiosFetch({
-  url: 'users/auth',
+  url: 'users/signout',
   method: 'GET'
  })
 }
 
-const signOut = (data) => {
+const authentication = (data) => {
  return axiosFetch({
-  url: 'users/signout',
+  url: 'users/auth',
   method: 'GET'
  })
 }
@@ -40,6 +40,23 @@ const checkLogin = (login) => {
  })
 }
 
+const getData = (id = null) => {
+ const url = 'users' + (id !== null ? `/${id}` : '')
+ return axiosFetch({
+  url,
+  method: 'GET',
+  params: {offset: 0, offsetStep: 999999}
+ })
+}
+
+const changePassword = (data) => {
+ return axiosFetch({
+  url: 'users/change/password',
+  method: 'PUT',
+  data: data
+ })
+}
 
 
-export {signIn, signUp, authentication, signOut, checkLogin}
+
+export {signIn, signUp, authentication, signOut, checkLogin, getData, changePassword}

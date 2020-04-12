@@ -3,12 +3,11 @@ import {Switch, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import * as Actions from './actions'
 import Header from 'src/components/header'
-import Main from 'src/pages/main'
-import About from 'src/pages/about'
+import Posts from 'src/pages/posts'
+import Users from 'src/pages/users'
+import User from 'src/pages/users/user'
 import SignIn from 'src/pages/sign-in'
 import SignUp from 'src/pages/sign-up'
-import Post from 'src/pages/post'
-import NewPost from 'src/pages/new-post'
 
 
 
@@ -17,18 +16,17 @@ class App extends React.Component{
 
  render(){
   return <>
-<Header user={this.props.user} signOut={this.props.signOut} />
+<Header user={this.props.dataOfCurrentUser} signOut={this.props.signOut} />
+
 <article>
- <>
-  <Switch>
-   <Route exact path='/' component={Main} />
-   <Route path='/about' component={About} />
-   <Route path='/sign-in' component={SignIn} />
-   <Route path='/sign-up' component={SignUp} />
-   <Route exact path='/post/:id' component={Post} />
-   {this.props.user && <Route path='/new-post' component={NewPost} />}
-  </Switch>
- </>
+ <Switch>
+  <Route exact path='/' component={Posts} />
+  <Route path='/posts' component={Posts} />
+  <Route exact path='/users' component={Users} />
+  <Route path='/users/:id' component={User} />
+  <Route path='/sign-in' component={SignIn} />
+  <Route path='/sign-up' component={SignUp} />
+ </Switch>
 </article>
   </>
  }
@@ -36,5 +34,5 @@ class App extends React.Component{
 
 
 
-const mapStateToProps = (state) => ({user: state.applicationReducer.user})
+const mapStateToProps = (state) => ({dataOfCurrentUser: state.application.user})
 export default connect(mapStateToProps, Actions)(App)

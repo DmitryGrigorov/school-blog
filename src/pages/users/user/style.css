@@ -1,0 +1,33 @@
+.popUp{
+  border-right: 1px solid rgb(200, 200, 200); border-left: 1px solid rgb(200, 200, 200); border-radius: 50%;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  font-size: 1.2em;
+  overflow: hidden;
+  padding: 40px;
+  position: relative;
+  width: 480px; height: 480px;
+}
+
+.popUp > Img{
+  opacity: 0.08;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1
+}
+
+.popUp > Div{
+  border-top: 1px dotted rgb(200, 200, 200); border-bottom: 1px dotted rgb(200, 200, 200);
+  display: flex; flex-direction: column;
+  padding: 20px 0
+}
+.popUp > Div > *{ display: flex; justify-content: space-between }
+.popUp > Div > * > *{ background-color: rgba(255, 255, 255, 0.6) }
+.popUp > Div > * > *:first-child{ margin-right: 20px }
+
+.popUp > Button{
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  font-size: 0.6em;
+  margin-top: 4px;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+.popUp > Button:hover{ background-color: white }

@@ -9,18 +9,21 @@ HTML{
 
 Body{
   font-size: 1.4em;
-  width: 100vw; height: 100vh
+  overflow-x: hidden
 }
 Body > Main{
   display: flex; flex-direction: column;
-  width: 100%; height: 100%
+  max-width: 800px; min-height: 100vh
 }
 
 Body > Main > Article{
+  border-right: 1px dashed rgb(200, 200, 200);
   flex-grow: 1;
-  display: flex; flex-direction: column; justify-content: center; align-items: center
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  height: 100%;
+  padding: 4px;
+  position: relative
 }
-
 
 
 @media all and (max-width: 320px){}

@@ -22,11 +22,8 @@ const signInReducer = (state = initState, action) => {
      [action.payload.fieldId]: action.payload.value
     }
    })
-
    case 'SIGNIN_REQUEST':
-    return{
-
-    }
+    return{}
 
    default:
     return state

@@ -20,9 +20,7 @@ const applicationReducer = (state = initState, action) => {
 
   case 'SIGNIN_FAIL':
   case 'SIGNUP_SUCCESS':
-   return{
-
-   }
+   return{}
 
   default: return state
  }

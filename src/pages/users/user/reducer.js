@@ -1,7 +1,7 @@
 const initState = { data: null }
-const postReducer = (state = initState, action) => {
+const userReducer = (state = initState, action) => {
  switch(action.type){
-  case 'POST_GET_DATA_SUCCESS':
+  case 'GET-DATA-OF-USER_SUCCESS':
    return {
     ...state,
     data: action.payload
@@ -14,4 +14,4 @@ const postReducer = (state = initState, action) => {
 
 
 
-export default postReducer
+export default userReducer

@@ -2,25 +2,19 @@ import cloneDeep from 'lodash/cloneDeep'
 
 const initState = {
  dataForm: {
-  lastName: '',
-  firstName: '',
-  eMail: '',
-  login: '',
-  password: ''
+  currentPassword: '',
+  newPassword: ''
  },
  errors: {
-  lastName: '',
-  firstName: '',
-  eMail: '',
-  login: '',
-  password: ''
+  currentPassword: '',
+  newPassword: ''
  }
 }
 
 const merge = (state, someObject) => {
  const clonnedState = cloneDeep(state)
 
- return Object.assign(clonnedState, someObject)
+ return Object.assign(clonnedState, someObject);
 }
 
 const getFormErrors = (payload) => {
@@ -28,8 +22,8 @@ const getFormErrors = (payload) => {
   const errorCode = Object.keys(errorFromServer)[0]
 
   switch (errorCode){
-   case 'unique':
-    return '-1|Данный login занят'
+   case 'minLength':
+    return '-1|Не менее 3 знаков'
    case 'isRequired':
     return '-1|Поле обязательно для заполнения!'
    default:
@@ -47,33 +41,33 @@ const getFormErrors = (payload) => {
  return errors
 }
 
-const signUpReducer = (state = initState, action) => {
- switch(action.type){
-  case 'SIGNUP_CHANGE_DATA_FORM':
+const changePasswordOfUserReducer = (state = initState, action) => {
+ switch (action.type){
+  case 'CHANGE-PASSWORD_CHANGE-FORM':
    return merge(state, {
-    dataForm: {
+    dataForm:{
      ...state.dataForm,
      [action.payload.fieldId]: action.payload.value
     }
    })
-  case 'SIGNUP_CHECK-LOGIN_SUCCESS':
+  case 'CHANGE-PASSWORD_SUCCESS':
    return {
     ...state,
     errors: {
      ...state.errors,
-     login: action.payload.exists ? 'Данный login занят' : ''
+     currentPassword: action.payload.success ? '1|Угадал' : '-1|Не угадал, пробуй ещё...'
     }
    }
-  case 'SIGNUP_FAIL':
-    return{
-     ...state,
-     errors: getFormErrors(action.payload)
-    }
-   default:
-    return state
+  case 'CHANGE-PASSWORD_FAIL':
+   return{
+    ...state,
+    errors: getFormErrors(action.payload)
+   }
+  default:
+   return state
  }
 }
 
 
 
-export default signUpReducer
+export default changePasswordOfUserReducer
