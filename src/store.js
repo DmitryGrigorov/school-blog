@@ -24,7 +24,7 @@ const createRootReducer = (history) => combineReducers({
   signUp: signUpReducer,
   main: mainReducer,
   post: postReducer,
-  newPost: newPostReducer
+  newPost: newPostReducer,
 });
 
 // function myMiddleware(store) {

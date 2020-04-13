@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './style.css';
 
 export default class Button extends Component {
   onClick = () => {
@@ -9,7 +10,7 @@ export default class Button extends Component {
 
   render() {
     return (
-      <button onClick={this.onClick}>
+      <button className={style.button} onClick={this.onClick}>
         {this.props.children}
       </button>
     )
