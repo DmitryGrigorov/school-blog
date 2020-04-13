@@ -5,17 +5,19 @@ import { Switch, Route } from 'react-router-dom';
 import Header from 'src/components/header';
 import SignIn from 'src/pages/sing-in';
 import SignUp from 'src/pages/sign-up'
-import About from 'src/pages/about';
-import NewPost from 'src/pages/new-post';
 // import FooterCounter from "src/components/footer-counter";
 import * as Actions from './actions';
 import './style.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.auth();
+  }
+
   render() {
     return (
       <>
-        <Header />
+        <Header user={this.props.user} signOut={this.props.signOut} />
         <Switch>
           <Route path='/sign-in'>
             <SignIn />
@@ -24,10 +26,10 @@ class App extends Component {
             <SignUp />
           </Route>
           <Route path='/new-post'>
-            <NewPost />
+            <h1>New post</h1>
           </Route>
           <Route path='/about'>
-            <About />
+            <h1>About</h1>
           </Route>
           <Route path='/'>
             <h1>MAIN PAGE</h1>
@@ -42,7 +44,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    counter: state.applicationReducer.counter
+    counter: state.applicationReducer.counter,
+    user: state.applicationReducer.user
   });
 };
 

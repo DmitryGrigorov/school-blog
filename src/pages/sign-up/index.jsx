@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
+import Button from 'src/components/button';
 import * as Actions from './actions';
 
-class SignIn extends Component {
+class SignUp extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
+  };
+
+  onSubmit = () => {
+    this.props.signUpAction(this.props.dataForm);
   };
 
   render() {
@@ -73,6 +78,7 @@ class SignIn extends Component {
             />
           </div>
         </div>
+        <Button onClick={this.onSubmit}>Отправить</Button>
       </div>
     );
   }
@@ -82,4 +88,4 @@ const mapStateToProps = (state) => ({
   dataForm: state.signUp.dataForm
 });
 
-export default connect(mapStateToProps, Actions)(SignIn);
+export default connect(mapStateToProps, Actions)(SignUp);
