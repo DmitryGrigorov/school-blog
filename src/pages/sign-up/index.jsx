@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
-import Button from 'src/components/button';
 import * as Actions from './actions';
 
-class SignUp extends Component {
+class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
@@ -36,8 +35,8 @@ class SignUp extends Component {
           </div>
           <div>
             <Input
-              id="firstname"
-              value={this.props.dataForm.firstname}
+              id="firstName"
+              value={this.props.dataForm.firstName}
               onChange={this.props.changeFieldAction}
             />
           </div>
@@ -48,8 +47,8 @@ class SignUp extends Component {
           </div>
           <div>
             <Input
-              id="lastname"
-              value={this.props.dataForm.lastname}
+              id="lastName"
+              value={this.props.dataForm.lastName}
               onChange={this.props.changeFieldAction}
             />
           </div>
@@ -78,7 +77,9 @@ class SignUp extends Component {
             />
           </div>
         </div>
-        <Button onClick={this.onSubmit}>Отправить</Button>
+        <div>
+          <button onClick={this.onSubmit}>Зарегистрироваться</button>
+        </div>
       </div>
     );
   }
@@ -88,4 +89,4 @@ const mapStateToProps = (state) => ({
   dataForm: state.signUp.dataForm
 });
 
-export default connect(mapStateToProps, Actions)(SignUp);
+export default connect(mapStateToProps, Actions)(SignIn);
