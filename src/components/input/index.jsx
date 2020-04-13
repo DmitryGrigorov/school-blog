@@ -14,12 +14,12 @@ class Input extends React.Component{
  onBlur = () => this.props.onBlur && this.props.onBlur()
 
  render(){
-  const {id, placeholder, value, notice = '0|'} = this.props
+  const {id, placeholder, value, notice = '0|', type} = this.props
   const a_notice = notice.split('|')
 
   return <>
 <label className={`${s.labelOfInput} ${a_notice[0] < 0 ? s.error : ''} ${a_notice[0] > 0 ? s.valid : ''}`} htmlFor={id}>{a_notice[1] && a_notice[1]}</label>
-<input type='text' id={id} placeholder={placeholder} value={value} onChange={this.onChange} onBlur={this.onBlur} placeholder={placeholder} />
+<input type={type ? type : 'text'} id={id} placeholder={placeholder} value={value} onChange={this.onChange} onBlur={this.onBlur} placeholder={placeholder} />
   </>
  }
 }

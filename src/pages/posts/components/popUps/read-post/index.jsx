@@ -6,9 +6,8 @@ import s from './style.css'
 
 
 class ReadPost_popUp extends React.Component{
- componentDidMount(){
-  this.props.readDataOfPostAction(this.props.idOfPost)
- }
+ componentDidMount(){ this.props.readDataOfPostAction(this.props.idOfPost) }
+ componentWillUnmount(){ this.props.clearPage() }
 
  render(){
   const {data} = this.props

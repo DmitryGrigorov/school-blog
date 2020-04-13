@@ -6,6 +6,11 @@ const readPostReducer = (state = initState, action) => {
     ...state,
     data: action.payload
    }
+  case 'READ-POST_CLEAR-PAGE':
+   return {
+    ...state,
+    data: null
+   }
 
   default:
    return state

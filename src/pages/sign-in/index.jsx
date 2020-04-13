@@ -26,7 +26,7 @@ class SignIn extends React.Component{
  <Input id='login' placeholder='login' value={this.props.dataForm.login} onChange={this.props.changeFieldAction} />
 </div>
 <div>
- <Input id='password' placeholder='password' value={this.props.dataForm.password} onChange={this.props.changeFieldAction} />
+ <Input id='password' type='password' placeholder='password' value={this.props.dataForm.password} onChange={this.props.changeFieldAction} />
 </div>
 <div>
  <Button type='submit' placeholder='' onClick={this.onAuthorisation}>Войти</Button>

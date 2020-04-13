@@ -22,6 +22,11 @@ const addPostReducer = (state = initState, action) => {
      [action.payload.fieldId]: action.payload.value
     }
    })
+  case 'ADD-POST_CLEAR-PAGE':
+   return {
+    ...state,
+    dataForm: {title: '', content: ''}
+   }
 
   default:
    return state

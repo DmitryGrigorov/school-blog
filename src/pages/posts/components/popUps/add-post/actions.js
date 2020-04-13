@@ -16,6 +16,10 @@ const addPostAction = (data) => async (dispatch) => {
  }
 }
 
+const clearPage = () => {
+ return (dispatch) => dispatch({type: 'ADD-POST_CLEAR-PAGE'})
+}
 
 
-export {changeFieldAction, addPostAction}
+
+export {changeFieldAction, addPostAction, clearPage}

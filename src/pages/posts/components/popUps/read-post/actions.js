@@ -15,6 +15,10 @@ const readDataOfPostAction = (id) => {
  }
 }
 
+const clearPage = () => {
+ return (dispatch) => dispatch({type: 'READ-POST_CLEAR-PAGE'})
+}
 
 
-export {readDataOfPostAction}
+
+export {readDataOfPostAction, clearPage}

@@ -16,11 +16,16 @@ class AddPost_popUp extends React.Component{
   addPostAction: PropTypes.func.isRequired
  }
 
+ componentWillUnmount(){ this.props.clearPage() }
+
  handlerOnChange = ({fieldId, value}) => this.props.changeFieldAction(fieldId, value)
 
  handlerOnClick = () => {
-  this.props.addPostAction(this.props.data)
-  this.props.setIsShowPopUp()
+  const {title, content} = this.props.data
+  if(title.length > 0 && content.length > 0){
+   this.props.addPostAction(this.props.data)
+   this.props.setIsShowPopUp()
+  }
  }
 
  render(){
