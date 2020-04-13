@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Input from 'src/components/input';
 import * as Actions from './actions';
 
-class SignUp extends Component {
+class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
@@ -27,24 +27,36 @@ class SignUp extends Component {
         </div>
         <div>
           <div>
-            email
+            first name
           </div>
           <div>
             <Input
-              id="email"
-              value={this.props.dataForm.email}
+              id="firstname"
+              value={this.props.dataForm.firstname}
               onChange={this.props.changeFieldAction}
             />
           </div>
         </div>
         <div>
           <div>
-            firstName
+            last name
           </div>
           <div>
             <Input
-              id="firstName"
-              value={this.props.dataForm.firstName}
+              id="lastname"
+              value={this.props.dataForm.lastname}
+              onChange={this.props.changeFieldAction}
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            email
+          </div>
+          <div>
+            <Input
+              id="email"
+              value={this.props.dataForm.email}
               onChange={this.props.changeFieldAction}
             />
           </div>
@@ -70,4 +82,4 @@ const mapStateToProps = (state) => ({
   dataForm: state.signUp.dataForm
 });
 
-export default connect(mapStateToProps, Actions)(SignUp);
+export default connect(mapStateToProps, Actions)(SignIn);

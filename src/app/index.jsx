@@ -1,36 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
+
 import Header from 'src/components/header';
-// import SignIn from 'src/pages/sign-in';
-import SignUp from 'src/pages/sign-up';
+import SignIn from 'src/pages/sing-in';
+import SignUp from 'src/pages/sign-up'
+import About from 'src/pages/about';
+import NewPost from 'src/pages/new-post';
+// import FooterCounter from "src/components/footer-counter";
 import * as Actions from './actions';
 import './style.css';
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <>
         <Header />
-        <SignUp />
-        <div className="footer">
-          count = {this.props.counter}
-          <button
-            onClick={() => this.props.increaseAction(1)}
-          >
-            increase 1
-          </button>
-          <button
-            onClick={() => this.props.increaseAction(55)}
-          >
-            increase 55
-          </button>
-          <button
-            onClick={() => this.props.decreaseAction(1)}
-          >
-            decrease
-          </button>
-        </div>
-      </div>
+        <Switch>
+          <Route path='/sign-in'>
+            <SignIn />
+          </Route>
+          <Route path='/sign-up'>
+            <SignUp />
+          </Route>
+          <Route path='/new-post'>
+            <NewPost />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/'>
+            <h1>MAIN PAGE</h1>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi excepturi illum incidunt magni nam officia qui sed similique suscipit unde.
+          </Route>
+        </Switch>
+        {/*<FooterCounter counter={this.props.counter} increaseAction={this.props.increaseAction} decreaseAction={this.props.decreaseAction} />*/}
+      </>
     );
   }
 }
