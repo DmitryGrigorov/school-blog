@@ -17,20 +17,20 @@ class MainPage extends Component {
   onScroll = (e) => {
     const { posts, isLoadingPosts } = this.props;
     const postsLength = posts.length;
-    const distanseToDownLine = document.documentElement.getBoundingClientRect().bottom;
+    const windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
 
-    if(distanseToDownLine <= document.documentElement.clientHeight + 100 && !isLoadingPosts) {
+    if(windowRelativeBottom <= document.documentElement.clientHeight + 100 && !isLoadingPosts) {
       this.props.getScrollPostsAction(postsLength)
     }
   };
 
-  onClickLike = (e) => {
-    const { id } = e.target;
+  onClickLike = (evt) => {
+    const { id } = evt.target;
     this.props.increaseLikeCountAction(id);
   };
 
-  onClickDislike = (e) => {
-    const { id } = e.target;
+  onClickDislike = (evt) => {
+    const { id } = evt.target;
     this.props.increaseDislikeCountAction(id);
   };
 
@@ -52,6 +52,7 @@ class MainPage extends Component {
                   <div id={postItem.id} onClick={this.onClickLike} className={style.like}>Like {postItem.likesCount}</div>
                   <div id={postItem.id} onClick={this.onClickDislike} className={style.dislike}>Dislike {postItem.dislikesCount}</div>
                 </div>
+                <div className={style.viewWrapper}> {postItem.viewsCount} <div className={style.eye}/></div>
               </div>
             </div>
           );

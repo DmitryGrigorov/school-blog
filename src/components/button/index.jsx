@@ -10,7 +10,7 @@ export default class Button extends Component {
 
   render() {
     return (
-      <button className={style.button} onClick={this.onClick}>
+      <button className={style.button} disabled={this.props.disabled} onClick={this.onClick}>
         {this.props.children}
       </button>
     )

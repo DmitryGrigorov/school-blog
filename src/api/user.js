@@ -39,3 +39,14 @@ export function checkLogin(login) {
     }
   });
 }
+
+export function changePassword(data) {
+  return axiosFetch({
+    url: '/users/change/password/',
+    method: 'PUT',
+    data: {
+      currentPassword: data.currentPassword,
+      newPassword: data.newPassword
+    }
+  });
+}

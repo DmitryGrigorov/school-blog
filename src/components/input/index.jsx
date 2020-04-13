@@ -6,22 +6,25 @@ export default class Input extends Component {
     const value = e.target.value;
     const { id, onChange } = this.props;
 
-    onChange({ fieldId: id, value });
+    onChange && onChange({ fieldId: id, value });
   };
 
-  onBlur = () => {
-    const { onBlur } = this.props;
+  onBlur = (e) => {
+    const value = e.target.value;
+    const { id, onBlur } = this.props;
 
-    onBlur && onBlur();
+    onBlur && onBlur(value, id);
   };
 
   render() {
-    const { value, error } = this.props;
+    const { value, error, placeholder, id } = this.props;
 
     return (
       <div>
         <input
+          id={id}
           type="text"
+          placeholder={placeholder}
           value={value}
           onChange={this.onChange}
           onBlur={this.onBlur}
