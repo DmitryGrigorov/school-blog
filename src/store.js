@@ -11,7 +11,6 @@ import mainReducer from "./pages/main/reducer";
 import postReducer from "./pages/post/reducer";
 import userReducer from "./pages/user/reducer";
 import myPostsReducer from "./pages/myposts/reducer";
-import testReducer from "./pages/test-page/reducer";
 import changePasswordReducer from "./components/modal/reducer";
 
 
