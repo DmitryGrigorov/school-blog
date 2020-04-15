@@ -1,43 +1,57 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Route, Switch} from 'react-router-dom'
 import Header from 'src/components/header';
-import SignIn from 'src/pages/sing-in';
 import * as Actions from './actions';
 import './style.css';
+import SignUp from "../pages/sign-up";
+import SignIn from "../pages/sing-in";
+import style from './style.css'
+import NewPost from "../pages/new-post";
+import Main from "../pages/main";
+import Post from "../pages/post";
+import User from "../pages/user";
+import myPosts from "../pages/myposts";
+
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <SignIn />
-        <div className="footer">
-          count = {this.props.counter}
-          <button
-            onClick={() => this.props.increaseAction(1)}
-          >
-            increase 1
-          </button>
-          <button
-            onClick={() => this.props.increaseAction(55)}
-          >
-            increase 55
-          </button>
-          <button
-            onClick={() => this.props.decreaseAction(1)}
-          >
-            decrease
-          </button>
-        </div>
-      </div>
-    );
-  }
+
+    componentDidMount() {
+        this.props.auth();
+    }
+
+    render() {
+        return (
+            <div className={style.app}>
+                <Header user={this.props.user} signOut={this.props.signOut}/>
+                <Switch>
+                    <Route path='/user/:id' exact={true} component={User}/>
+                    <Route path='/' exact={true} component={Main}/>
+                    {this.props.user && <Route path='/new-post' exact={true} component={NewPost}/>}
+                    {this.props.user && <Route path='/user/:id/my-posts/' exact={true} component={myPosts}/>}
+                    <Route path='/sign-in' exact={true} component={SignIn}/>
+                    <Route path='/sign-up' exact={true} component={SignUp}/>
+                    {/*<Route path='/post/:id' exact={true} component={Post}/>*/}
+                    <Route path='/post/:id' exact={true} render={props => <Post user={this.props.user} {...props}/>}/>
+
+                </Switch>
+
+                {/*    counter={this.props.counter}*/}
+                {/*    increaseAction={this.props.increaseAction}*/}
+                {/*    decreaseAction={this.props.decreaseAction}*/}
+                {/*/>*/}
+                {/*<SignIn />*/}
+
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-  return ({
-    counter: state.applicationReducer.counter
-  });
+    return ({
+        counter: state.app.counter,
+        user: state.app.user
+    });
 };
 
 // const mapDispatchToProps = (dispatch) => {

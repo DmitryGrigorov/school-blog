@@ -4,7 +4,8 @@ const initState = {
   dataForm: {
     login: '',
     password: ''
-  }
+  },
+  user: null
 };
 
 function merge(state, someObject) {
@@ -19,9 +20,15 @@ export default function signInReducer(state = initState, action) {
       return merge(state, {
         dataForm: {
           ...state.dataForm,
-          [action.payload.fieldId]: action.payload.value
+          [action.payload.fieldId]: action.payload.value.trim()
         }
       });
+    case 'SIGN-IN_SUCCESS':
+      return {
+        ...state,
+        user: action.payload
+      }
+
     default:
       return state;
   }

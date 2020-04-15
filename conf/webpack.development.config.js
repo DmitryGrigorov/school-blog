@@ -11,7 +11,7 @@ export default new Config().extend('conf/webpack.common.config.js').merge({
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(pathApp.root),
-    port: 4000,
+    port: 4001,
     hot: true,
     inline: true,
     historyApiFallback: true,

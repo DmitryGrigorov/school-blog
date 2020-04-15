@@ -1,0 +1,123 @@
+.postWrapper {
+    margin: 100px auto 0;
+    width: 60%;
+    border: 3px solid #555;
+    border-radius: 20px;
+    background: #ccc;
+
+}
+
+.postTitle {
+    opacity: 0.7;
+    font-size: 30px;
+    margin: 20px;
+    min-height: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.postContent {
+    margin: 20px;
+    white-space: pre-line;
+    font-style: italic;
+}
+
+
+.postLike{
+    display: inline-flex;
+    margin: 0 20px 20px
+}
+
+.postLikeButton {
+    cursor: pointer;
+    width: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: antiquewhite;
+    opacity: 0.8;
+    color: coral;
+}
+
+
+.postLikeCount {
+    margin-left: 5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.viewWrapper {
+    display: inline-flex;
+    user-select: none
+}
+
+.eye {
+    width: 10px;
+    height: 10px;
+    background: #000000;
+    border-radius: 60% 0 / 60%;
+    transform: rotate(45deg);
+}
+
+.like {
+    color: darkolivegreen;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.like:hover {
+    color: green;
+}
+
+.dislike {
+    color: indianred;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.dislike:hover {
+    color: red;
+}
+
+.eye::before,
+.eye::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: #fff;
+    border-radius: 100%;
+}
+
+.eye::after {
+    width: 30%;
+    height: 30%;
+    top: 35%;
+    left: 35%;
+    background: inherit; /* цвет зрачка как у родителя */
+}
+
+.viewCount {
+    position: relative;
+    margin-left: 5px;
+    bottom: 5px;
+}
+.loader {
+    text-align: center;
+}
+.postManager{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 20px;
+}
+
+.input,
+.textarea{
+    margin: 10px;
+}

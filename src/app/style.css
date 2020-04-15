@@ -1,8 +1,15 @@
 * {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 html, body {
   margin: 0;
   padding: 0;
+}
+
+.app{
+  background: linear-gradient(90deg, rgba(233,233,233,1) 0%, rgba(82,82,82,0.7063200280112045) 82%);
+  width: 100%;
+  min-height: 100vh;
 }

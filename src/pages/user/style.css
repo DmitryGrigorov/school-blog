@@ -1,0 +1,34 @@
+.userWrapper{
+    margin: 100px auto 0;
+    border: 1px solid #333333;
+    width: 60%;
+    border-radius: 5px;
+    text-align: center;
+    padding:20px 40px;
+}
+
+.userWrapper img {
+
+    width: 100px;
+}
+
+.aboutUser {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+.leftAboutUser p {
+
+}
+.rightAboutUser p{
+    font-weight: bold;
+}
+
+.aboutUser p {
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+    font-size: 12px;
+}

@@ -1,0 +1,13 @@
+.newPostWrapper{
+    margin: 150px auto 0;
+    width: 40%;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #999;
+}
+.input,
+.textarea,
+.button
+{
+    margin: 10px;
+}

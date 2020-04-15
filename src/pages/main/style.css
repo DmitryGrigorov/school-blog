@@ -1,0 +1,121 @@
+.postList {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+
+}
+
+.postWrapper {
+    background: #dfdfdf;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: 10px auto;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #000;
+    transition: all .2s ease-in-out;
+}
+
+.postWrapper:hover {
+    box-shadow: 2px 2px 5px #fff;
+}
+
+
+.title {
+    text-align: center;
+    font-size: 20px;
+    color: #FE7A00;
+    outline: none;
+    text-decoration: none;
+    margin: 10px;
+
+}
+
+.title:hover {
+    color: #A54F00;
+}
+
+.content {
+    white-space: pre-wrap;
+    margin: 20px;
+    background: #ededed;
+    border-radius: 5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.viewWrapper {
+    display: inline-flex;
+    user-select: none
+}
+
+.eye {
+    width: 10px;
+    height: 10px;
+    background: #000000;
+    border-radius: 60% 0 / 60%;
+    transform: rotate(45deg);
+}
+
+.like {
+    color: darkolivegreen;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.like:hover {
+    color: green;
+}
+
+.dislike {
+    color: indianred;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.dislike:hover {
+    color: red;
+}
+
+.eye::before,
+.eye::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: #fff;
+    border-radius: 100%;
+}
+
+.eye::after {
+    width: 30%;
+    height: 30%;
+    top: 35%;
+    left: 35%;
+    background: inherit; /* цвет зрачка как у родителя */
+}
+
+.viewCount {
+    position: relative;
+    margin-left: 5px;
+    bottom: 5px;
+}
+
+.loader {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}

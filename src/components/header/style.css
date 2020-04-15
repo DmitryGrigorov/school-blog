@@ -1,3 +1,41 @@
 .wrapper {
-  border: 1px solid red;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.wrapperUl{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+.wrapperUl li {
+  display: inline-flex;
+
+}
+
+.headerLink {
+  color: blanchedalmond;
+  display: inline-flex;
+  text-align: center;
+  padding: 15px;
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+}
+
+
+
+a.active {
+  color: #FE7A00;
+  font-size: 20px;
+}
+
+a:hover {
+  font-size: 20px;
 }

@@ -1,0 +1,22 @@
+.button {
+
+    max-width: 200px;
+    margin-top: 10px;
+    color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: #FE7A00;
+}
+
+
+.button:active{
+    color: #ddd;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.6);
+}
+
+.button:hover{
+    background: #FE7A00;
+}
