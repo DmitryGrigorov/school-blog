@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Input from 'src/components/input'
 import * as Actions from './actions'
-import { push } from 'connected-react-router'
-import API from 'src/api'
+//import { push } from 'connected-react-router'
+//import API from 'src/api'
+import style from './style.css'
 
 class SignIn extends Component {
   static propTypes = {
@@ -26,32 +27,29 @@ class SignIn extends Component {
   // }
 
   render() {
+    console.log(this.props)
     return (
-      <div>
-        <div>
-          <div>
-            login
-          </div>
+      <div className={style.signUpWrapper}>
+        <div className={style.row}>
           <div>
             <Input
               id="login"
+              placeholder="login"
               value={this.props.dataForm.login}
               onChange={this.props.changeFieldAction}
             />
           </div>
         </div>
-        <div>
-          <div>
-            password
-          </div>
+        <div className={style.row}>
           <div>
             <Input
               id="password"
+              placeholder="password"
               value={this.props.dataForm.password}
               onChange={this.props.changeFieldAction}
             />
           </div>
-          <button onClick={this.onLogin}>Login</button>
+          <button className={style.button} onClick={this.onLogin}>Login</button>
         </div>
       </div>
     );

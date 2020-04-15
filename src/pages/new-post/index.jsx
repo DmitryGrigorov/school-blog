@@ -7,16 +7,28 @@ import * as Actions from "./actions"
 import style from './style.css';
 
 class NewPost extends Component {
+    element = null
+
+    constructor(props) {
+        super(props);
+        this.element = document.createElement('div');
+        this.state = {
+            isShowValueError: false,
+        };
+    }
     onChangeData = (data) => {
         const fieldId = data.fieldId;
         const value = data.value;
-
+        console.log(value.length, this.state.isShowValueError);
+        if (value.length <= 2) {
+            
+        }
         this.props.changeDataAction(fieldId, value);
     }
     onSubmit = () => {
         this.props.createPostAction(this.props.data)
     }
-    
+
     render() {
         const { data } = this.props
         console.log(data)
@@ -32,7 +44,7 @@ class NewPost extends Component {
                 </div>
                 <div className={style.row}>
                     <div>Контент</div>
-                    <Textarea  
+                    <Textarea
                         id="content"
                         value={data.content}
                         onChange={this.onChangeData}
@@ -46,7 +58,7 @@ class NewPost extends Component {
     }
 }
 
-function mapStateToProps (state) { 
+function mapStateToProps(state) {
     return {
         data: state.newPostReducer.data
     };

@@ -9,6 +9,7 @@ import signUpReducer from 'src/pages/sign-up/reduce.js'
 import newPostReducer from 'src/pages/new-post/reduce.js'
 import mainPageReducer from 'src/pages/main/reduce.js'
 import postReducer from 'src/pages/post/reduce.js'
+import myPageReducer from 'src/pages/my-page/reduce.js'
 import { history } from 'src/history.js'
 
 const logger = createLogger({
@@ -24,7 +25,8 @@ const creatRootReducer = (history) => combineReducers({
   signUpReducer,
   newPostReducer,
   mainPageReducer,
-  postReducer
+  postReducer,
+  myPageReducer
 });
 // У стора есть диспатч
 // function myMiddleware(store) {

@@ -1,5 +1,5 @@
 .wrapper {
-  background: #333;
+  background: #1d4265;
   display: flex;
   justify-content: space-between;
 }
@@ -27,4 +27,7 @@
 .link:hover {
   background: #111;
    
+}
+.login {
+  color: coral
 }

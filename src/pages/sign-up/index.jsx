@@ -16,7 +16,7 @@ class SignUp extends Component {
     this.props.signUpAction(this.props.dataForm)
   }
   checkLogin = () => {
-    console.log('Logging')
+
     this.props.checkLoginAction(this.props.dataForm.login)
     // const { checkLoginAction, dataForm } = this.props;
     // checkLoginAction(dataForm.value)
@@ -25,20 +25,17 @@ class SignUp extends Component {
   render() {
     //console.log(this.props)
     const { errors } = this.props
-    //console.log(errors)
+
     return (
       <div className={style.signUpWrapper}>
         <div className={style.row}>
           <div>
-            login
-          </div>
-          <div>
             <Input
               id="login"
+              placeholder="login"
               value={this.props.dataForm.login}
               onChange={this.props.changeFieldAction}
               onBlur={this.checkLogin}
-              // error="Error"
               error={errors.login}
             />
           </div>  
@@ -46,11 +43,9 @@ class SignUp extends Component {
 
         <div className={style.row}>
           <div>
-            First name
-          </div>
-          <div>
             <Input
               id="firstName"
+              placeholder="first name"
               value={this.props.dataForm.firstName}
               onChange={this.props.changeFieldAction}
               error={errors.firstName}
@@ -60,11 +55,9 @@ class SignUp extends Component {
 
         <div className={style.row}>
           <div>
-            Last name
-          </div>
-          <div>
             <Input
               id="lastName"
+              placeholder="lastname"
               value={this.props.dataForm.lastName}
               onChange={this.props.changeFieldAction}
               error={errors.lastName}
@@ -74,11 +67,9 @@ class SignUp extends Component {
 
         <div className={style.row}>
           <div>
-            Email
-          </div>
-          <div>
             <Input
               id="email"
+              placeholder="email"
               value={this.props.dataForm.email}
               onChange={this.props.changeFieldAction}
               error={errors.email}
@@ -88,18 +79,16 @@ class SignUp extends Component {
 
         <div className={style.row}>
           <div>
-            password
-          </div>
-          <div>
             <Input
               id="password"
+              placeholder="password"
               value={this.props.dataForm.password}
               onChange={this.props.changeFieldAction}
               error={errors.password}
             />
           </div>
           <div className={style.row}>
-            <button onClick={this.onSubmit}>Зарегистрироваться</button>
+            <button className={style.button} onClick={this.onSubmit}>Зарегистрироваться</button>
           </div>
         </div>
       </div>

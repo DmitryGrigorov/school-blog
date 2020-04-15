@@ -10,7 +10,7 @@ export function signIn (data) {
 
 export const signUp = (data) => {
     return axiosFetch({
-        url: "users/signup",
+        url: "users/signup/",
         method: "POST",
         data: data,
     })
@@ -37,5 +37,19 @@ export function checkLogin(login) {
         data: {
             login: login
         }
+    })
+}
+
+export function getUserInfoById(id) {
+    return axiosFetch({
+        url: `/users/${id}`,
+        method: "GET",
+    })
+}
+export function changePassword(data) {
+    return axiosFetch({
+        url: "/users/change/password/",
+        method: "PUT",
+        data
     })
 }

@@ -15,7 +15,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { value, error } = this.props;
+    const { value, error, placeholder } = this.props;
     return (
       <div>
         <input
@@ -23,6 +23,7 @@ export default class Input extends Component {
           value={value}
           onChange={this.onChange}
           onBlur={this.onBlur}
+          placeholder={placeholder}
           className={`${style.inputComponent} ${error ? style.inputError : ""}`}
         />
       <div className={style.error}>{error}</div>

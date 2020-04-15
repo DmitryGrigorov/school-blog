@@ -10,9 +10,6 @@ const initState = {
 
 function merge(state, someObject) {
   const clonnedState = cloneDeep(state);
-  // console.log(state)
-  // console.log(someObject)
-  // console.log(clonnedState)
   return Object.assign(clonnedState, someObject);
 }
 

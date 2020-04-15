@@ -5,6 +5,7 @@ export const auth = () => {
   return async function(dispatch) {
     try {
       const response = await API.user.auth()
+      console.log(response.data)
       dispatch({type: 'APPLICATION-AUTH', payload: response.data})
     } catch (er) {
       dispatch({ type: 'SIGN_IN_FAIL' })

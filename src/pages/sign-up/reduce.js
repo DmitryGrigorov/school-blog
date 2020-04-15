@@ -44,6 +44,7 @@ function getFormErrors(payload) {
   const errors = errorKeys.reduce(function(result, errorKey) {
     const errorFromServer = payload[errorKey]
     result[errorKey] = mapErrorFromServer(errorFromServer)
+    return result;
   }, {});
   return errors;
 }
@@ -57,6 +58,7 @@ export default function signUpReducer(state = initState, action) {
         }
       })
     case 'SIGN_UP_CHECK_LOGIN_SUCCESS':
+      console.log(action.payload)
       return {
         ...state,
         errors: {
@@ -65,7 +67,7 @@ export default function signUpReducer(state = initState, action) {
         }
       }
     case 'SIGN_UP_ERROR':
-        console.log('getFormErrors:', getFormErrors(action.payload))
+        console.log(action.payload)
         return {
           ...state,
           errors: getFormErrors(action.payload) 

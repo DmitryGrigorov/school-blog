@@ -4,13 +4,13 @@
 }
 .postWrapper {
     margin-bottom: 15px;
-    border: 1px solid #337ab7;
+    border: 1px solid #3c83c7;
     border-radius: 4px;
-    padding-top: 20px;
+    margin-top: 20px;
 }
 .postTitle {
     font-weight: bold;
-    background: #337ab7;
+    background: #3c83c7;
     color: white;
     font-size: 20px;
     text-decoration: none;
@@ -37,7 +37,7 @@
     padding: 0px 5px;
 }
 
-/* .eye {
+.eye {
     display: inline-block;
     color:#111111;
     width: 18px;
@@ -71,6 +71,6 @@
     display: flex;
     align-items: center;
 }
-.leftColoumn {
+/* .leftColoumn {
 
 } */
