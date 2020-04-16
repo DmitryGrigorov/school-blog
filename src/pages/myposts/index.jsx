@@ -26,6 +26,7 @@ class myPosts extends Component {
     }
     componentWillUnmount() {
         this.props.leavePageAction();
+        window.removeEventListener('scroll', this.onScroll);
     }
     render() {
         return (

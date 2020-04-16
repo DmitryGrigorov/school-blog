@@ -34,10 +34,11 @@ class Main extends Component {
 
     componentDidMount() {
         this.props.getInitPostsAction();
-        window.addEventListener('scroll', this.onScroll)
+        window.addEventListener('scroll', this.onScroll);
     }
     componentWillUnmount() {
         this.props.leavePageAction();
+        window.removeEventListener('scroll', this.onScroll);
     }
     render() {
         return (

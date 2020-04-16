@@ -4,7 +4,7 @@ export const getInitPostsAction = () => {
     return async function (dispatch) {
         try {
             dispatch({type: 'MAIN_PAGE_INIT_GET_POSTS_REQUEST'});
-            const response = await API.posts.getList({offsetStep: 3});
+            const response = await API.posts.getList({offsetStep: 5});
             dispatch({type: 'MAIN_PAGE_INIT_GET_POSTS_SUCCESS', payload: response.data});
         } catch (e) {
             dispatch({type: 'MAIN_PAGE_INIT_GET_POSTS_FAIL'});
