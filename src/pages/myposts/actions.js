@@ -32,3 +32,27 @@ export const leavePageAction = () => {
         }
     }
 }
+
+export const increaseLikeCountAction = (id) => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'MY_POSTS_INCREASE_LIKE_REQUEST'});
+            const response = await API.posts.increaseLike(id);
+            dispatch({type: 'MY_POSTS_INCREASE_LIKE_SUCCESS', payload: response.data});
+        } catch (e) {
+            dispatch({type: 'MY_POSTS_INCREASE_LIKE_FAIL', payload: e});
+        }
+    }
+}
+
+export const decreaseLikeCountAction = (id) => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'MY_POSTS_DECREASE_LIKE_REQUEST'});
+            const response = await API.posts.decreaseLike(id);
+            dispatch({type: 'MY_POSTS_DECREASE_LIKE_SUCCESS', payload: response.data});
+        } catch (e) {
+            dispatch({type: 'MY_POSTS_DECREASE_LIKE_FAIL', payload: e});
+        }
+    }
+}

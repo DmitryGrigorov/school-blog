@@ -31,6 +31,12 @@ export default function myPostsReducer(state = initState, action) {
                 ...state,
                 posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post)
             }
+        case 'MY_POSTS_INCREASE_LIKE_SUCCESS':
+        case 'MY_POSTS_DECREASE_LIKE_SUCCESS':
+            return {
+                ...state,
+                posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post)
+            }
         default:
             return state;
     }

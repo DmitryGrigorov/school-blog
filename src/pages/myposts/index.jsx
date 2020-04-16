@@ -10,7 +10,9 @@ class myPosts extends Component {
     static propTypes = {
         getInitPostsAction: PropTypes.func.isRequired,
         getScrollPostsAction: PropTypes.func.isRequired,
-        leavePageAction: PropTypes.func.isRequired
+        leavePageAction: PropTypes.func.isRequired,
+        increaseLikeCountAction: PropTypes.func.isRequired,
+        decreaseLikeCountAction: PropTypes.func.isRequired
     };
     onScroll = e => {
         const {match} = this.props
@@ -18,6 +20,13 @@ class myPosts extends Component {
         if (scroll.scrollHeight - scroll.clientHeight < scroll.scrollTop + 1) {
             this.props.getScrollPostsAction(this.props.posts.length, match.params.id);
         }
+    }
+    increaseLikeCount(id) {
+        this.props.increaseLikeCountAction(id);
+    }
+
+    decreaseLikeCount(id) {
+        this.props.decreaseLikeCountAction(id);
     }
     componentDidMount() {
         const {match} = this.props
@@ -40,7 +49,21 @@ class myPosts extends Component {
                                 <Link to={'/post/'+post.id} className={style.title}>{post.title}</Link>
                                 <div
                                     className={style.content}>{post.content}</div>
+                                <div className={style.footer}>
+                                    <div className={style.viewWrapper}>
+                                        <div onClick={() => this.increaseLikeCount(post.id)}
+                                             className={style.like}>Like {post.likesCount}</div>
+                                        <div onClick={() => this.decreaseLikeCount(post.id)}
+                                             className={style.dislike}>Dislike {post.dislikesCount}</div>
+                                    </div>
+
+                                    <div className={style.viewWrapper}>
+                                        <div className={style.eye}></div>
+                                        <div className={style.viewCount}>{post.viewsCount}</div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     )
                 })}
