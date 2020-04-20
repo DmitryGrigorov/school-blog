@@ -29,13 +29,34 @@ export function signOut() {
     method: 'GET'
   });
 }
-
 export function checkLogin(login) {
-  return axiosFetch({
-    url: 'users/check-exists/',
-    method: 'POST',
-    data: {
-      login: login
-    }
-  });
-}
+    return axiosFetch({
+      url: 'users/check-exists/',
+      method: 'POST',
+      data: {
+        login: login
+      }
+    });
+  }
+//   export function checkPassword(password) {
+//     return axiosFetch({
+//       url: 'users/check-exists/',
+//       method: 'POST',
+//       data: {
+//         password: password
+//       }
+//     });
+//   }
+  export function getUserInfoById(id) {
+    return axiosFetch({
+        url: `/users/${id}`,
+        method: "GET",
+    })
+  }
+  export function changePassword(data) {
+    return axiosFetch({
+        url: "/users/change/password/",
+        method: "PUT",
+        data
+    })
+  }

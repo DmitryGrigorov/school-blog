@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import style from './style.css';
-
 export default class Input extends Component {
   onChange = (e) => {
     const value = e.target.value;
@@ -8,21 +7,18 @@ export default class Input extends Component {
 
     onChange({ fieldId: id, value });
   };
-
   onBlur = () => {
     const { onBlur } = this.props;
 
     onBlur && onBlur();
   };
-
   render() {
-    const { value, error, placeholder } = this.props;
+    const { value, error } = this.props;
 
     return (
       <div>
         <input
           type="text"
-          placeholder={placeholder}
           value={value}
           onChange={this.onChange}
           onBlur={this.onBlur}

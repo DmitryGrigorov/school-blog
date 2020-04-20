@@ -8,8 +8,29 @@
     left: 0;
     background: rgba(0,0,0, .2);
 }
-
+/* .wrapperModal
+{
+    width: 500px;
+    margin: 90px auto;
+} */
 .modal {
-    background: white;
+    width: 500px;
+    border: 1px solid darkgrey;
     margin: 100px auto;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: rgb(242, 240, 240);  
+}
+.content
+{
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 20px
+}
+.cross
+{
+    color:darkorchid;
+    font-size:20px;
+    cursor: pointer;
+    float:right;
 }

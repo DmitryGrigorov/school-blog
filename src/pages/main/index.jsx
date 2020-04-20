@@ -9,38 +9,35 @@ class MainPage extends Component {
     this.props.getInitPostsAction();
     window.addEventListener('scroll', this.onScroll);
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.onScroll);
   }
-
   onScroll = (e) => {
     const { posts, isLoadingPosts } = this.props;
     const postsLength = posts.length;
     const windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
-
+    
     if(windowRelativeBottom <= document.documentElement.clientHeight + 100 && !isLoadingPosts) {
-      this.props.getScrollPostsAction(postsLength)
+      this.props.getScrollPostsAction(postsLength);
     }
   };
 
   onClickLike = (evt) => {
+    //console.log("like+");
     const { id } = evt.target;
     this.props.increaseLikeCountAction(id);
   };
 
-  onClickDislike = (evt) => {
+  onClickDisLike = (evt) => {
+      //console.log("dislike-");
     const { id } = evt.target;
     this.props.increaseDislikeCountAction(id);
   };
-
   render() {
-    const { posts } = this.props;
-
+    const { posts} = this.props;
     return (
       <div className={style.postList}>
-        {posts.map((postItem) => {
-
+        {posts.map((postItem) =>{
           return (
             <div className={style.postWrapper} key={postItem.id}>
               <div className={style.postTitle}>
@@ -49,10 +46,14 @@ class MainPage extends Component {
               <div className={style.postContent}>{postItem.content}</div>
               <div className={style.footer}>
                 <div className={style.leftCol}>
-                  <div id={postItem.id} onClick={this.onClickLike} className={style.like}>Like {postItem.likesCount}</div>
-                  <div id={postItem.id} onClick={this.onClickDislike} className={style.dislike}>Dislike {postItem.dislikesCount}</div>
+                   <div id={postItem.id} className={style.like} onClick={this.onClickLike}>Like: {postItem.likesCount}</div>
+                   <div id={postItem.id} onClick={this.onClickDisLike} className={style.dislike}>Dislike:{postItem.dislikesCount}</div> 
                 </div>
-                <div className={style.viewWrapper}> {postItem.viewsCount} <div className={style.eye}/></div>
+                
+                <div className={style.viewWrapper}>
+                  <div className={style.eye}></div>
+                  <div>{postItem.viewsCount}</div>
+                </div>
               </div>
             </div>
           );

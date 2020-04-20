@@ -6,14 +6,13 @@ class Modal extends Component {
     return (
       <div className={style.wrapper}>
         <div className={style.modal}>
-          <div>
-            {
-              this.props.content
-            }
+        <div className={style.actions}>
+          {/* <button onClick={this.props.closeModal}>Close</button> */}
+          <span className={style.cross} onClick={this.props.closeModal}>x</span>
           </div>
-          <button onClick={this.props.closeModal}>Close</button>
+              <div className={style.content}>{this.props.children}</div>
         </div>
-      </div>
+        </div>
     );
   }
 }

@@ -14,7 +14,6 @@ export function getPostById(id) {
     method: 'GET'
   });
 }
-
 export function createPost(data) {
   return axiosFetch({
     url: '/posts',
@@ -22,7 +21,6 @@ export function createPost(data) {
     data
   });
 }
-
 export function increasePostLike(id) {
   return axiosFetch({
     url: `/posts/like/${id}`,

@@ -1,74 +1,93 @@
-.postList {
-  width: 500px;
-  margin: 0 auto;
-}
-
-.postWrapper {
-  margin-bottom: 15px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
-.postTitle {
-  background-color: #333;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px;
-}
-
-.linkTitle {
-  text-decoration: none;
-  color: white;
-}
-
-.postContent {
-  padding: 10px 20px 10px;
-  margin-top: 5px;
-}
-
-.like {
-  display: inline-block;
-  color: #38fac7;
-  padding: 0px 5px;
-}
-
-.dislike {
-  color: #f80511;
-  display: inline-block;
-  padding: 0px 5px;
-}
-
-.eye {
-  position: relative;
-  border: 2px solid #333;
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border-radius: 75% 15%;
-  transform: rotate(45deg);
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.eye:before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  border: 1px solid #333;
-  border-radius: 50%;
-}
-
-.viewWrapper {
-  display: inline-flex;
-  align-items: center;
-}
-
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+ 
+  .postWrapper {
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+  
+  .postList {
+    width: 500px;
+    margin: 20px auto;
+  }
+  
+  .postTitle {
+    font-weight: bold;
+    background:rgb(163, 60, 247);
+    color: rgb(193, 132, 250);
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 15px;
+  }
+  
+  .linkTitle {
+    color: rgb(219, 184, 252);
+    text-decoration: none;
+  }
+  .linkTitle:hover{
+    color: rgb(242, 227, 255);
+    text-decoration: none;
+  }
+  .postContent {
+    margin-top: 5px;
+    /* white-space: pre; */
+    padding: 15px;
+    background-color: rgb(250, 245, 255);
+  }
+  
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15px 10px;
+  }
+  
+  .like {
+    display: inline-block;
+    color: #c15ce9;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .dislike {
+    display: inline-block;
+    color: #3669d8;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .viewWrapper{
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .leftCol {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .eye {
+    position: relative;
+    color: #111;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #111;
+    border-radius: 75% 15%;
+    transform: rotate(45deg);
+    margin-right: 8px;
+  }
+  
+  .eye:before {
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 4px;
+    top: 3.25px;
+    left: 3.25px;
+    border: 2px solid #111;
+    border-radius: 50%;
+  }

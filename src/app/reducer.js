@@ -1,11 +1,29 @@
 const initState = {
-  user: null
+ counter:0,
+ user: null
 };
-
 export default function appReducer(state = initState, action) {
-  switch (action.type) {
+    switch (action.type) {
+      // case 'APPLICATION_INCREASE':
+      //   return ({
+      //     ...state,
+      //     counter: state.counter + action.payload
+      //   });
+      // case 'APPLICATION_DECREASE':
+      //   return ({
+      //     ...state,
+      //     counter: state.counter - action.payload
+      //   });
     case 'SIGN-IN_SUCCESS':
+      return {
+        ...state,
+        user: action.payload
+      };
     case 'SIGN_UP_SUCCESS':
+      return {
+        ...state,
+        user: action.payload
+      };
     case 'APPLICATION-AUTH':
       return {
         ...state,
@@ -16,7 +34,7 @@ export default function appReducer(state = initState, action) {
         ...state,
         user: null
       };
-    default:
-      return state;
+      default:
+        return state;
+    }
   }
-}

@@ -32,7 +32,7 @@ class NewPost extends Component {
           />
         </div>
         <div className={s.row}>
-          <div>Контент</div>
+          <div>Содержание</div>
           <Textarea
             id="content"
             value={data.content}
