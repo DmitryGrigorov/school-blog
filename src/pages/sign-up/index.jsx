@@ -12,10 +12,13 @@ class SignUp extends Component {
         changeFieldAction: PropTypes.func.isRequired,
         signUpAction: PropTypes.func.isRequired,
         checkLoginAction: PropTypes.func.isRequired,
+        leaveSignUpAction: PropTypes.func.isRequired,
 
 
     };
-
+    componentWillUnmount() {
+        this.props.leaveSignUpAction();
+    }
     checkLogin = () => {
         this.props.checkLoginAction(this.props.dataForm.login)
     };

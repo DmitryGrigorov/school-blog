@@ -12,8 +12,14 @@ class SignIn extends Component {
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
         signInAction: PropTypes.func.isRequired,
+        leaveSignInAction: PropTypes.func.isRequired,
 
     };
+
+    componentWillUnmount() {
+        this.props.leaveSignInAction();
+    }
+
     onSubmit = () => {
         this.props.signInAction(this.props.dataForm);
     }
@@ -22,6 +28,12 @@ class SignIn extends Component {
     render() {
         return (
             <div className={style.signIn}>
+                {this.props.error
+                    ? <div className={style.signInError}>
+                        Неверный логин или пароль
+                    </div>
+                    :
+                    null}
                 <div className={style.input}>
                     <Input
                         label='Логин'
@@ -45,7 +57,8 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    dataForm: state.signIn.dataForm
+    dataForm: state.signIn.dataForm,
+    error: state.signIn.error
 });
 
 export default connect(mapStateToProps, Actions)(SignIn);

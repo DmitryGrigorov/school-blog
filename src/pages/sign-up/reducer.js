@@ -69,6 +69,7 @@ export default function signUpReducer(state = initState, action) {
                 errors: getFormErrors(action.payload)
             }
         case 'SIGN-UP_SUCCESS':
+        case 'SIGN-UP_LEAVE_SUCCESS':
             return {
                 ...initState
             }

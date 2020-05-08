@@ -7,6 +7,16 @@ export const changeFieldAction = ({fieldId, value}) => ({
     payload: {fieldId, value}
 });
 
+export const leaveSignInAction = () => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'SIGN-IN_LEAVE_SUCCESS'});
+        } catch (error) {
+            dispatch({type: 'SIGN-IN_LEAVE_FAIL', payload: error.response.data});
+        }
+    }
+}
+
 
 export const signInAction = (dataForm) => {
     return async function (dispatch) {
@@ -16,7 +26,7 @@ export const signInAction = (dataForm) => {
             dispatch({type: 'SIGN-IN_SUCCESS', payload: response.data});
             dispatch(push('/'));
         } catch (e) {
-            console.log(e);
+            dispatch({type: 'SIGN-IN_FAIL', payload: e.data});
         }
 
 

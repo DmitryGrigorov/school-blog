@@ -1,6 +1,6 @@
 const initState = {
     data: null,
-    showModal: true
+    showModal: false
 };
 
 export default function userReducer(state = initState, action) {

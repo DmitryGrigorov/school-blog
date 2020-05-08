@@ -5,7 +5,8 @@ const initState = {
     login: '',
     password: ''
   },
-  user: null
+  user: null,
+  error: false
 };
 
 function merge(state, someObject) {
@@ -23,10 +24,23 @@ export default function signInReducer(state = initState, action) {
           [action.payload.fieldId]: action.payload.value.trim()
         }
       });
-    case 'SIGN-IN_SUCCESS':
+    case 'SIGN-IN_FAIL':
       return {
         ...state,
-        user: action.payload
+        error: true
+      }
+    case 'SIGN-IN_SUCCESS':
+      return {
+        dataForm: {
+          login: '',
+          password: ''
+        },
+        user: action.payload,
+        error: false
+      }
+    case 'SIGN-IN_LEAVE_SUCCESS':
+      return {
+        ...initState
       }
 
     default:

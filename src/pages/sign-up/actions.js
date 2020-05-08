@@ -7,6 +7,16 @@ export const changeFieldAction = ({fieldId, value}) => ({
     payload: {fieldId, value}
 });
 
+export const leaveSignUpAction = () => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'SIGN-UP_LEAVE_SUCCESS'});
+        } catch (error) {
+            dispatch({type: 'SIGN-UP_LEAVE_FAIL', payload: error.response.data});
+        }
+    }
+}
+
 export const signUpAction = (dataForm) => {
     return async function (dispatch) {
         try {

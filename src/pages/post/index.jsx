@@ -50,10 +50,12 @@ class Post extends Component {
     render() {
         // console.log(this.props.user)
         const {data} = this.props
+        console.log(this.props)
         return (
             <div className={style.postWrapper}>
-                {data
-                    ? data.authorId === this.props.user.id
+                {
+                    data
+                    ? this.props.user && data.authorId === this.props.user.id
                         ?
                         <>
                             <div>
